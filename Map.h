@@ -6,11 +6,13 @@
 #define LAB4_DATA_DELETE_MAP_H
 
 #include <string>
+#include <SFML/Graphics.hpp>
 
 class Map {
+private:
     static const int height = 12;
     const int width = 40;
-    std::string TileMap[height] = {
+    sf::String TileMap[height] = {
             "BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB",
             "B                                B     B",
             "B                                B     B",
@@ -24,6 +26,8 @@ class Map {
             "B    B         BB         BB           B",
             "BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB",
     };
+public:
+    void print(sf::RenderWindow & window, sf::RectangleShape & rectangle);
 };
 
 

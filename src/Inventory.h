@@ -11,7 +11,7 @@ private:
     friend class InventoryIt;
 
 public:
-    typedef InventoryIt Iterator;
+    //typedef InventoryIt Iterator;
 };
 
 class InventoryIt {

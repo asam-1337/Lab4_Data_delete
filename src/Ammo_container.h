@@ -8,10 +8,10 @@
 #include <string>
 
 class Ammo_container {
-    std::string name;
-    std::string type;
+    const std::string name;
+    const std::string type;
     int curr;
-    int total;
+    const int max;
     int weight;
 };
 
