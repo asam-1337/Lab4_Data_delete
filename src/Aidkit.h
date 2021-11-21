@@ -6,12 +6,14 @@
 #define LAB4_DATA_DELETE_AIDKIT_H
 
 #include <string>
+#include "Object.h"
 
-class Aidkit {
-    const std::string name;
+class Aidkit : public Object {
+    //const std::string name;
     int health;
     const int cost;
-    const int weight;
+    //const int weight;
+    explicit Aidkit() : Object(AIDKIT, 10), health(50), cost(10) {}
 };
 
 

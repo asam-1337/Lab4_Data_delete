@@ -10,15 +10,19 @@
 
 #include "Weapon.h"
 #include "Inventory.h"
-#include "Specifications.h"
+#include "Creature.h"
 
-class Operative {
+class Operative : public Creature, public Inventory {
 private:
     std::string name;
-
 public:
     sf::Sprite skin;
-    explicit Operative(const sf::Texture& t, float x = 0, float y = 0);
+    Operative(const sf::Texture& t, std::string &name, float x = 0, float y = 0);
+    int getWeight() const;
+    void selectWeapon();
+    void takeItem();
+    void getDamage();
+    void walk();
 };
 
 
