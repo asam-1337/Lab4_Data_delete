@@ -64,8 +64,14 @@ int main()
 
         if (Keyboard::isKeyPressed(Keyboard::Num1))
         {
-            pl1.selectWeapon();
+            pl1.selectWeapon(0);
         }
+
+        if (Keyboard::isKeyPressed(Keyboard::Num2))
+        {
+            pl1.selectWeapon(0);
+        }
+
         window.clear(Color::White);
         map.print(window, rectangle);
         window.draw(pl1.skin);

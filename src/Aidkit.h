@@ -9,11 +9,11 @@
 #include "Object.h"
 
 class Aidkit : public Object {
-    //const std::string name;
-    int health;
-    const int cost;
-    //const int weight;
-    explicit Aidkit() : Object(AIDKIT, 10), health(50), cost(10) {}
+private:
+    int health = 50;
+    const int cost = 10;
+public:
+    explicit Aidkit() : Object(AIDKIT,NO,10) {}
 };
 
 

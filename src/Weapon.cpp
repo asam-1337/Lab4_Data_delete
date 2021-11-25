@@ -7,13 +7,24 @@
 #include <utility>
 
 Weapon::Weapon(Name name, int damage, int reload_cost, int curr_ammo, int max_ammo, int weight)
-    : Object(WEAPON, weight), damage(damage), reload_cost(reload_cost), curr_ammo(curr_ammo), max_ammo(max_ammo)
-{}
+    : Object(WEAPON, name, weight),
+    damage(damage), reload_cost(reload_cost),
+    curr_ammo(curr_ammo), max_ammo(max_ammo) {}
 
-int Weapon::getDamage() const {return damage;}
+bool Weapon::fire() {
+    if (curr_ammo == 0)
+        return false;
+    curr_ammo--;
+    return true;
+}
 
-void Weapon::reload()
-{
-    this->curr_ammo = this->max_ammo;
-
+void Weapon::reload(int &ammo) {
+    if (max_ammo - curr_ammo < ammo) {
+        curr_ammo = max_ammo;
+        ammo -= max_ammo - curr_ammo;
+    }
+    else {
+        curr_ammo += ammo;
+        ammo = 0;
+    }
 }
