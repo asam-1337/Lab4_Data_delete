@@ -5,9 +5,11 @@
 #ifndef LAB4_DATA_DELETE_CREATURE_H
 #define LAB4_DATA_DELETE_CREATURE_H
 
+#include <string>
 
 class Creature {
 protected:
+    std::string name;
     int curr_health = 0;
     int max_health = 0;
     int curr_points = 0;

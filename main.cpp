@@ -15,7 +15,8 @@ int main()
 
     float currentFrame = 0;
 
-    Operative pl1(t, 50, 100);
+    Operative pl1(t, 1, 50, 100);
+    pl1.
     Map map;
 
     Clock clock;

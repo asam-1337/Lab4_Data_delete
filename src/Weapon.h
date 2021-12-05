@@ -19,21 +19,19 @@ private:
 public:
     Weapon(Name name, int damage, int reload_cost, int curr_ammo, int max_amm, int weight);
 
-    [[nodiscard]] int getDamage() const override{ return damage; }
+    [[nodiscard]] int getDamage() const { return damage; }
 
-    [[nodiscard]] int getReloadCost() const override { return reload_cost; }
+    [[nodiscard]] int getReloadCost() const { return reload_cost; }
 
-    [[nodiscard]] int getShootCost() const override { return shoot_cost; }
+    [[nodiscard]] int getShootCost() const { return shoot_cost; }
 
-    //[[nodiscard]] int getWeight() const override { return weight; }
+    [[nodiscard]] int getAmmo() const { return curr_ammo; }
 
-    [[nodiscard]] int getAmmo() const override { return curr_ammo; }
+    [[nodiscard]] int getMaxAmmo() const { return max_ammo; }
 
-    [[nodiscard]] int getMaxAmmo() const override { return max_ammo; }
+    bool fire();
 
-    bool fire() override;
-
-    void reload(int &ammo) override;
+    void reload(int &ammo);
 };
 
 

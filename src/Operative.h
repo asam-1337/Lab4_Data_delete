@@ -9,30 +9,31 @@
 #include <SFML/Graphics.hpp>
 #include "Object.h"
 #include "Weapon.h"
+#include "Ammo_container.h"
+#include "Aidkit.h"
 #include "Inventory.h"
-#include "Creature.h"
+#include "Furajir.h"
 
-class Operative : public Creature {
+class Operative : public Furajir {
 private:
-    std::string name;
-    Inventory inventory;
+    Inventory<Object*> inventory;
     int i_selectedWeapon = 0;
 public:
     sf::Sprite skin;
 
-    Operative(const sf::Texture& t, std::string &name, float x = 0, float y = 0);
+    Operative(const sf::Texture& t, int name, float x = 0, float y = 0);
 
-    int getWeight() const;
+    //int getWeight() const;
 
     void selectWeapon(int n);
 
-    void takeItem(Object *item);
+    //void takeItem(Object *item);
 
-    void throwItem();
+    //void throwItem();
 
-    void getHit(int damage);
+    //void getHit(int damage);
 
-    void walk();
+    //void walk();
 
     void reload();
 

@@ -8,14 +8,15 @@
 #include <string>
 #include <utility>
 #include "Creature.h"
+#include "Weapon.h"
 
 class Wild_creature : public Creature {
 private:
-    std::string name;
+    Weapon *weapon = nullptr;
 public:
-    Wild_creature(std::string & name) :
+    explicit Wild_creature(std::string & name) :
         Creature(50,50,50,
-                 2,1,3,0,0), name(name){}
+                 2,1,3,0,0){}
 };
 
 
