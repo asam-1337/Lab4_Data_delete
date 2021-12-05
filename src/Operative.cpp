@@ -5,7 +5,7 @@
 #include "Operative.h"
 
 Operative::Operative(const sf::Texture& t, int name, float x, float y)
-    : Creature(100, 100, 100,
+    : Furajir("1",100, 100, 100,
                2, 5, 10, 0,50)
 {
     skin.setTexture(t);
