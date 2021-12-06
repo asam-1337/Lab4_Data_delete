@@ -16,24 +16,14 @@
 
 class Operative : public Furajir {
 private:
-    Inventory<Object*> inventory;
+    //Inventory<Object*> m_inventory;
     int i_selectedWeapon = 0;
 public:
     sf::Sprite skin;
 
     Operative(const sf::Texture& t, int name, float x = 0, float y = 0);
 
-    //int getWeight() const;
-
     void selectWeapon(int n);
-
-    //void takeItem(Object *item);
-
-    //void throwItem();
-
-    //void getHit(int damage);
-
-    //void walk();
 
     void reload();
 

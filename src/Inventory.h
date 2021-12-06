@@ -12,32 +12,44 @@
 #include "Aidkit.h"
 #include "Ammo_container.h"
 
-
-/*class Inventory {
-protected:
-    static const int size = 5;
-    std::vector<T*> m_table{size};
-public:
-    [[nodiscard]] T* getItem(int num) const;
-
-    void addItem(T* object);
-};*/
 template <class T>
-class InventoryIt{
+class InventoryIt {
+
 private:
+
     T *m_curr;
+
 public:
 
     InventoryIt() : m_curr(nullptr){}
+
     explicit InventoryIt(T *it) : m_curr(it){}
 
-    bool operator !=(const InventoryIt &) const;
-    bool operator ==(const InventoryIt &) const;
+    bool operator != (const InventoryIt & it) const {
+        return m_curr != it.m_curr;
+    }
 
-    T operator *();
+    bool operator == (const InventoryIt & it) const {
+        return m_curr == it.m_curr;
+    }
 
-    InventoryIt & operator ++ ();
-    InventoryIt operator ++ (int);
+    T operator * () {
+        if (m_curr)
+            return m_curr;
+        throw std::logic_error("illegal value for Iterator");
+    }
+
+    InventoryIt operator ++ () {
+        ++m_curr;
+        return *this;
+    }
+
+    InventoryIt operator ++ (int) {
+        InventoryIt res;
+        res.m_curr = m_curr;
+        ++m_curr;
+        return res;
+    }
 };
 
 template <class T>
@@ -128,7 +140,5 @@ public:
         return Inventory::Iterator(m_table + m_curr);
     }
 };
-
-
 
 #endif //LAB4_DATA_DELETE_INVENTORY_H

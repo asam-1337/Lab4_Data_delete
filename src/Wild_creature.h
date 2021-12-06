@@ -12,11 +12,12 @@
 
 class Wild_creature : public Creature {
 private:
-    Weapon *weapon = nullptr;
+    Weapon *m_weapon = nullptr;
 public:
-    explicit Wild_creature(std::string & name) :
-        Creature(50,50,50,
+    explicit Wild_creature(std::string name) :
+        Creature(std::move(name), 50,50,50,
                  2,1,3,0,0){}
+    void takeWeapon(Weapon *weapon);
 };
 
 

@@ -16,14 +16,15 @@
 
 class Furajir : public Creature {
 protected:
-    Inventory<Object*> inventory;
+    Inventory<Object*> m_inventory;
 public:
     Furajir(std::string name, int max_health, int curr_points, int max_points, int walk_cost, int accuracy, int view_rad, int curr_weight, int max_weight);
+
     [[nodiscard]] int getWeight() const;
 
     void takeItem(Object *item);
 
-    void throwItem();
+    void throwItem(int n);
 
     void getHit(int damage);
 

@@ -13,7 +13,7 @@ private:
     int ammo = 0;
     const int max_ammo = 100;
 public:
-    explicit Ammo_container(Name name, int ammo): Object(AMMO, name,20), ammo(ammo) {}
+    Ammo_container(Name name, int ammo): Object(AMMO, name,20), ammo(ammo) {}
 
     [[nodiscard]] int& getAmmo() { return ammo; }
 

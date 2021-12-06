@@ -3,3 +3,10 @@
 //
 
 #include "Wild_creature.h"
+#include "Weapon.h"
+
+void Wild_creature::takeWeapon(Weapon *weapon) {
+    if (!m_weapon)
+        delete m_weapon;
+    m_weapon = new Weapon(*weapon);
+}

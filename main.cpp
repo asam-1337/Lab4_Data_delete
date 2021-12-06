@@ -8,7 +8,7 @@ using namespace sf;
 
 int main()
 {
-    RenderWindow window(VideoMode(1000, 100), "[DATA DELETED]");
+    RenderWindow window(VideoMode(1000, 1000), "[DATA DELETED]");
 
     Texture t;
     t.loadFromFile("../fang.png");
@@ -16,7 +16,6 @@ int main()
     float currentFrame = 0;
 
     Operative pl1(t, 1, 50, 100);
-    pl1.
     Map map;
 
     Clock clock;

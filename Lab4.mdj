@@ -1,7 +1,7 @@
 {
 	"_type": "Project",
 	"_id": "AAAAAAFF+h6SjaM2Hec=",
-	"name": "Untitled",
+	"m_name": "Untitled",
 	"ownedElements": [
 		{
 			"_type": "UMLModel",
@@ -9,7 +9,7 @@
 			"_parent": {
 				"$ref": "AAAAAAFF+h6SjaM2Hec="
 			},
-			"name": "Model",
+			"m_name": "Model",
 			"ownedElements": [
 				{
 					"_type": "UMLClassDiagram",
@@ -17,7 +17,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFF+qBWK6M3Z8Y="
 					},
-					"name": "Main",
+					"m_name": "Main",
 					"defaultDiagram": true,
 					"ownedViews": [
 						{
@@ -135,7 +135,7 @@
 											"top": 918,
 											"width": 171.58984375,
 											"height": 13,
-											"text": "-name: string",
+											"text": "-m_name: string",
 											"horizontalAlignment": 0
 										},
 										{
@@ -152,7 +152,7 @@
 											"top": 933,
 											"width": 171.58984375,
 											"height": 13,
-											"text": "-inventory: Inventory",
+											"text": "-m_inventory: Inventory",
 											"horizontalAlignment": 0
 										},
 										{
@@ -927,7 +927,7 @@
 											"top": 1014,
 											"width": 173.77978515625,
 											"height": 13,
-											"text": "-name: const string",
+											"text": "-m_name: const string",
 											"horizontalAlignment": 0
 										},
 										{
@@ -1029,7 +1029,7 @@
 											"top": 1104,
 											"width": 173.77978515625,
 											"height": 13,
-											"text": "-weight: const int",
+											"text": "-m_weight: const int",
 											"horizontalAlignment": 0
 										}
 									],
@@ -1314,7 +1314,7 @@
 											"top": 1494,
 											"width": 110.54443359375,
 											"height": 13,
-											"text": "-name: const string",
+											"text": "-m_name: const string",
 											"horizontalAlignment": 0
 										},
 										{
@@ -1332,7 +1332,7 @@
 											"top": 1496,
 											"width": 110.54443359375,
 											"height": 13,
-											"text": "-type: const string",
+											"text": "-m_type: const string",
 											"horizontalAlignment": 0
 										},
 										{
@@ -1384,7 +1384,7 @@
 											"top": 1526,
 											"width": 110.54443359375,
 											"height": 13,
-											"text": "-int: weight",
+											"text": "-int: m_weight",
 											"horizontalAlignment": 0
 										}
 									],
@@ -2136,7 +2136,7 @@
 											"top": 742,
 											"width": 160.79248046875,
 											"height": 13,
-											"text": "#type: type",
+											"text": "#m_type: m_type",
 											"horizontalAlignment": 0
 										},
 										{
@@ -2153,7 +2153,7 @@
 											"top": 757,
 											"width": 160.79248046875,
 											"height": 13,
-											"text": "#weight: int",
+											"text": "#m_weight: int",
 											"horizontalAlignment": 0
 										},
 										{
@@ -2170,7 +2170,7 @@
 											"top": 772,
 											"width": 160.79248046875,
 											"height": 13,
-											"text": "#name: Name",
+											"text": "#m_name: Name",
 											"horizontalAlignment": 0
 										}
 									],
@@ -4252,7 +4252,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFF+qBWK6M3Z8Y="
 					},
-					"name": "Operative",
+					"m_name": "Operative",
 					"ownedElements": [
 						{
 							"_type": "UMLGeneralization",
@@ -4288,9 +4288,9 @@
 							"_parent": {
 								"$ref": "AAAAAAF9Le/9wYd/Ozg="
 							},
-							"name": "name",
+							"m_name": "m_name",
 							"visibility": "private",
-							"type": "string"
+							"m_type": "string"
 						},
 						{
 							"_type": "UMLAttribute",
@@ -4298,9 +4298,9 @@
 							"_parent": {
 								"$ref": "AAAAAAF9Le/9wYd/Ozg="
 							},
-							"name": "inventory",
+							"m_name": "m_inventory",
 							"visibility": "private",
-							"type": "Inventory"
+							"m_type": "Inventory"
 						},
 						{
 							"_type": "UMLAttribute",
@@ -4308,9 +4308,9 @@
 							"_parent": {
 								"$ref": "AAAAAAF9Le/9wYd/Ozg="
 							},
-							"name": "spec",
+							"m_name": "spec",
 							"visibility": "private",
-							"type": "Specifications"
+							"m_type": "Specifications"
 						}
 					],
 					"operations": [
@@ -4320,7 +4320,7 @@
 							"_parent": {
 								"$ref": "AAAAAAF9Le/9wYd/Ozg="
 							},
-							"name": "selectWeapon",
+							"m_name": "selectWeapon",
 							"parameters": [
 								{
 									"_type": "UMLParameter",
@@ -4328,7 +4328,7 @@
 									"_parent": {
 										"$ref": "AAAAAAF9WCFcjQj+vIg="
 									},
-									"type": "void",
+									"m_type": "void",
 									"direction": "return"
 								}
 							]
@@ -4339,7 +4339,7 @@
 							"_parent": {
 								"$ref": "AAAAAAF9Le/9wYd/Ozg="
 							},
-							"name": "takeItem",
+							"m_name": "takeItem",
 							"parameters": [
 								{
 									"_type": "UMLParameter",
@@ -4347,8 +4347,8 @@
 									"_parent": {
 										"$ref": "AAAAAAF9WCHC4AlJklE="
 									},
-									"name": "item",
-									"type": "Object*"
+									"m_name": "item",
+									"m_type": "Object*"
 								},
 								{
 									"_type": "UMLParameter",
@@ -4356,7 +4356,7 @@
 									"_parent": {
 										"$ref": "AAAAAAF9WCHC4AlJklE="
 									},
-									"type": "void",
+									"m_type": "void",
 									"direction": "return"
 								}
 							]
@@ -4367,7 +4367,7 @@
 							"_parent": {
 								"$ref": "AAAAAAF9Le/9wYd/Ozg="
 							},
-							"name": "throwitem",
+							"m_name": "throwitem",
 							"parameters": [
 								{
 									"_type": "UMLParameter",
@@ -4375,7 +4375,7 @@
 									"_parent": {
 										"$ref": "AAAAAAF9WEp0gQp2oiw="
 									},
-									"type": "void",
+									"m_type": "void",
 									"direction": "return"
 								}
 							]
@@ -4386,7 +4386,7 @@
 							"_parent": {
 								"$ref": "AAAAAAF9Le/9wYd/Ozg="
 							},
-							"name": "getHit",
+							"m_name": "getHit",
 							"parameters": [
 								{
 									"_type": "UMLParameter",
@@ -4394,8 +4394,8 @@
 									"_parent": {
 										"$ref": "AAAAAAF9WEx+zQqvquo="
 									},
-									"name": "damage",
-									"type": "int"
+									"m_name": "damage",
+									"m_type": "int"
 								},
 								{
 									"_type": "UMLParameter",
@@ -4403,7 +4403,7 @@
 									"_parent": {
 										"$ref": "AAAAAAF9WEx+zQqvquo="
 									},
-									"type": "void",
+									"m_type": "void",
 									"direction": "return"
 								}
 							]
@@ -4414,7 +4414,7 @@
 							"_parent": {
 								"$ref": "AAAAAAF9Le/9wYd/Ozg="
 							},
-							"name": "walk",
+							"m_name": "walk",
 							"parameters": [
 								{
 									"_type": "UMLParameter",
@@ -4422,7 +4422,7 @@
 									"_parent": {
 										"$ref": "AAAAAAF9WEzuPgrwnTU="
 									},
-									"type": "void",
+									"m_type": "void",
 									"direction": "return"
 								}
 							]
@@ -4433,7 +4433,7 @@
 							"_parent": {
 								"$ref": "AAAAAAF9Le/9wYd/Ozg="
 							},
-							"name": "reload",
+							"m_name": "reload",
 							"parameters": [
 								{
 									"_type": "UMLParameter",
@@ -4441,7 +4441,7 @@
 									"_parent": {
 										"$ref": "AAAAAAF9WE19cAspvZI="
 									},
-									"type": "void",
+									"m_type": "void",
 									"direction": "return"
 								}
 							]
@@ -4452,7 +4452,7 @@
 							"_parent": {
 								"$ref": "AAAAAAF9Le/9wYd/Ozg="
 							},
-							"name": "fire",
+							"m_name": "fire",
 							"parameters": [
 								{
 									"_type": "UMLParameter",
@@ -4460,7 +4460,7 @@
 									"_parent": {
 										"$ref": "AAAAAAF9WE3EPwtiJE8="
 									},
-									"type": "bool",
+									"m_type": "bool",
 									"direction": "return"
 								}
 							]
@@ -4473,7 +4473,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFF+qBWK6M3Z8Y="
 					},
-					"name": "Creature",
+					"m_name": "Creature",
 					"ownedElements": [
 						{
 							"_type": "UMLGeneralization",
@@ -4524,8 +4524,8 @@
 							"_parent": {
 								"$ref": "AAAAAAF9LfZ2ZIfAL8U="
 							},
-							"name": "Attribute1",
-							"type": ""
+							"m_name": "Attribute1",
+							"m_type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -4533,9 +4533,9 @@
 							"_parent": {
 								"$ref": "AAAAAAF9LfZ2ZIfAL8U="
 							},
-							"name": "curr_health",
+							"m_name": "curr_health",
 							"visibility": "protected",
-							"type": "int"
+							"m_type": "int"
 						},
 						{
 							"_type": "UMLAttribute",
@@ -4543,9 +4543,9 @@
 							"_parent": {
 								"$ref": "AAAAAAF9LfZ2ZIfAL8U="
 							},
-							"name": "max_health",
+							"m_name": "max_health",
 							"visibility": "protected",
-							"type": "const int"
+							"m_type": "const int"
 						},
 						{
 							"_type": "UMLAttribute",
@@ -4553,9 +4553,9 @@
 							"_parent": {
 								"$ref": "AAAAAAF9LfZ2ZIfAL8U="
 							},
-							"name": "curr_points",
+							"m_name": "curr_points",
 							"visibility": "protected",
-							"type": "int"
+							"m_type": "int"
 						},
 						{
 							"_type": "UMLAttribute",
@@ -4563,9 +4563,9 @@
 							"_parent": {
 								"$ref": "AAAAAAF9LfZ2ZIfAL8U="
 							},
-							"name": "max_poins",
+							"m_name": "max_poins",
 							"visibility": "protected",
-							"type": "const int"
+							"m_type": "const int"
 						},
 						{
 							"_type": "UMLAttribute",
@@ -4573,9 +4573,9 @@
 							"_parent": {
 								"$ref": "AAAAAAF9LfZ2ZIfAL8U="
 							},
-							"name": "walk_cost",
+							"m_name": "walk_cost",
 							"visibility": "protected",
-							"type": "int"
+							"m_type": "int"
 						},
 						{
 							"_type": "UMLAttribute",
@@ -4583,9 +4583,9 @@
 							"_parent": {
 								"$ref": "AAAAAAF9LfZ2ZIfAL8U="
 							},
-							"name": "accuracy",
+							"m_name": "accuracy",
 							"visibility": "protected",
-							"type": "const int"
+							"m_type": "const int"
 						},
 						{
 							"_type": "UMLAttribute",
@@ -4593,7 +4593,7 @@
 							"_parent": {
 								"$ref": "AAAAAAF9LfZ2ZIfAL8U="
 							},
-							"name": "view_rad",
+							"m_name": "view_rad",
 							"ownedElements": [
 								{
 									"_type": "UMLConstraint",
@@ -4601,11 +4601,11 @@
 									"_parent": {
 										"$ref": "AAAAAAF9LfmkVogfZJA="
 									},
-									"name": "Constraint1"
+									"m_name": "Constraint1"
 								}
 							],
 							"visibility": "protected",
-							"type": "int"
+							"m_type": "int"
 						},
 						{
 							"_type": "UMLAttribute",
@@ -4613,9 +4613,9 @@
 							"_parent": {
 								"$ref": "AAAAAAF9LfZ2ZIfAL8U="
 							},
-							"name": "curr_weight",
+							"m_name": "curr_weight",
 							"visibility": "protected",
-							"type": "int"
+							"m_type": "int"
 						},
 						{
 							"_type": "UMLAttribute",
@@ -4623,9 +4623,9 @@
 							"_parent": {
 								"$ref": "AAAAAAF9LfZ2ZIfAL8U="
 							},
-							"name": "max_weight",
+							"m_name": "max_weight",
 							"visibility": "protected",
-							"type": "int"
+							"m_type": "int"
 						}
 					]
 				},
@@ -4635,7 +4635,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFF+qBWK6M3Z8Y="
 					},
-					"name": "Weapon",
+					"m_name": "Weapon",
 					"ownedElements": [
 						{
 							"_type": "UMLAssociation",
@@ -4686,9 +4686,9 @@
 							"_parent": {
 								"$ref": "AAAAAAF9LgFSwoiWgjA="
 							},
-							"name": "name",
+							"m_name": "m_name",
 							"visibility": "private",
-							"type": "const string"
+							"m_type": "const string"
 						},
 						{
 							"_type": "UMLAttribute",
@@ -4696,9 +4696,9 @@
 							"_parent": {
 								"$ref": "AAAAAAF9LgFSwoiWgjA="
 							},
-							"name": "damage",
+							"m_name": "damage",
 							"visibility": "private",
-							"type": "const int"
+							"m_type": "const int"
 						},
 						{
 							"_type": "UMLAttribute",
@@ -4706,8 +4706,8 @@
 							"_parent": {
 								"$ref": "AAAAAAF9LgFSwoiWgjA="
 							},
-							"name": "reload_cost",
-							"type": "const int"
+							"m_name": "reload_cost",
+							"m_type": "const int"
 						},
 						{
 							"_type": "UMLAttribute",
@@ -4715,9 +4715,9 @@
 							"_parent": {
 								"$ref": "AAAAAAF9LgFSwoiWgjA="
 							},
-							"name": "shoot_cost",
+							"m_name": "shoot_cost",
 							"visibility": "private",
-							"type": "const int"
+							"m_type": "const int"
 						},
 						{
 							"_type": "UMLAttribute",
@@ -4725,9 +4725,9 @@
 							"_parent": {
 								"$ref": "AAAAAAF9LgFSwoiWgjA="
 							},
-							"name": "curr_ammo",
+							"m_name": "curr_ammo",
 							"visibility": "private",
-							"type": "int"
+							"m_type": "int"
 						},
 						{
 							"_type": "UMLAttribute",
@@ -4735,8 +4735,8 @@
 							"_parent": {
 								"$ref": "AAAAAAF9LgFSwoiWgjA="
 							},
-							"name": "max_ammo",
-							"type": "const int"
+							"m_name": "max_ammo",
+							"m_type": "const int"
 						},
 						{
 							"_type": "UMLAttribute",
@@ -4744,9 +4744,9 @@
 							"_parent": {
 								"$ref": "AAAAAAF9LgFSwoiWgjA="
 							},
-							"name": "weight",
+							"m_name": "m_weight",
 							"visibility": "private",
-							"type": "const int"
+							"m_type": "const int"
 						}
 					],
 					"operations": [
@@ -4756,7 +4756,7 @@
 							"_parent": {
 								"$ref": "AAAAAAF9LgFSwoiWgjA="
 							},
-							"name": "fire"
+							"m_name": "fire"
 						},
 						{
 							"_type": "UMLOperation",
@@ -4764,7 +4764,7 @@
 							"_parent": {
 								"$ref": "AAAAAAF9LgFSwoiWgjA="
 							},
-							"name": "getDamage",
+							"m_name": "getDamage",
 							"parameters": [
 								{
 									"_type": "UMLParameter",
@@ -4772,7 +4772,7 @@
 									"_parent": {
 										"$ref": "AAAAAAF9Lg0Wp4kT8uA="
 									},
-									"type": "int",
+									"m_type": "int",
 									"direction": "return"
 								}
 							]
@@ -4783,7 +4783,7 @@
 							"_parent": {
 								"$ref": "AAAAAAF9LgFSwoiWgjA="
 							},
-							"name": "reload"
+							"m_name": "reload"
 						},
 						{
 							"_type": "UMLOperation",
@@ -4791,7 +4791,7 @@
 							"_parent": {
 								"$ref": "AAAAAAF9LgFSwoiWgjA="
 							},
-							"name": "override getReloadCost",
+							"m_name": "override getReloadCost",
 							"parameters": [
 								{
 									"_type": "UMLParameter",
@@ -4799,7 +4799,7 @@
 									"_parent": {
 										"$ref": "AAAAAAF9WF+YuxL6Y0A="
 									},
-									"type": "int",
+									"m_type": "int",
 									"direction": "return"
 								}
 							]
@@ -4810,7 +4810,7 @@
 							"_parent": {
 								"$ref": "AAAAAAF9LgFSwoiWgjA="
 							},
-							"name": "Operation1"
+							"m_name": "Operation1"
 						}
 					]
 				},
@@ -4820,7 +4820,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFF+qBWK6M3Z8Y="
 					},
-					"name": "Ammo_container",
+					"m_name": "Ammo_container",
 					"ownedElements": [
 						{
 							"_type": "UMLGeneralization",
@@ -4843,9 +4843,9 @@
 							"_parent": {
 								"$ref": "AAAAAAF9Lg72QIkk++s="
 							},
-							"name": "name",
+							"m_name": "m_name",
 							"visibility": "private",
-							"type": "const string"
+							"m_type": "const string"
 						},
 						{
 							"_type": "UMLAttribute",
@@ -4853,9 +4853,9 @@
 							"_parent": {
 								"$ref": "AAAAAAF9Lg72QIkk++s="
 							},
-							"name": "type",
+							"m_name": "m_type",
 							"visibility": "private",
-							"type": "const string"
+							"m_type": "const string"
 						},
 						{
 							"_type": "UMLAttribute",
@@ -4863,9 +4863,9 @@
 							"_parent": {
 								"$ref": "AAAAAAF9Lg72QIkk++s="
 							},
-							"name": "ammo",
+							"m_name": "ammo",
 							"visibility": "private",
-							"type": "int"
+							"m_type": "int"
 						},
 						{
 							"_type": "UMLAttribute",
@@ -4873,9 +4873,9 @@
 							"_parent": {
 								"$ref": "AAAAAAF9Lg72QIkk++s="
 							},
-							"name": "max_ammo",
+							"m_name": "max_ammo",
 							"visibility": "private",
-							"type": "const int"
+							"m_type": "const int"
 						},
 						{
 							"_type": "UMLAttribute",
@@ -4883,9 +4883,9 @@
 							"_parent": {
 								"$ref": "AAAAAAF9Lg72QIkk++s="
 							},
-							"name": "int",
+							"m_name": "int",
 							"visibility": "private",
-							"type": "weight"
+							"m_type": "m_weight"
 						}
 					],
 					"operations": [
@@ -4895,7 +4895,7 @@
 							"_parent": {
 								"$ref": "AAAAAAF9Lg72QIkk++s="
 							},
-							"name": "override getAmmo",
+							"m_name": "override getAmmo",
 							"parameters": [
 								{
 									"_type": "UMLParameter",
@@ -4903,7 +4903,7 @@
 									"_parent": {
 										"$ref": "AAAAAAF9WBIObf3aCgM="
 									},
-									"type": "int&",
+									"m_type": "int&",
 									"direction": "return"
 								}
 							]
@@ -4914,7 +4914,7 @@
 							"_parent": {
 								"$ref": "AAAAAAF9Lg72QIkk++s="
 							},
-							"name": "override getMaxAmmo",
+							"m_name": "override getMaxAmmo",
 							"parameters": [
 								{
 									"_type": "UMLParameter",
@@ -4922,7 +4922,7 @@
 									"_parent": {
 										"$ref": "AAAAAAF9WF5/MBI4Ssg="
 									},
-									"type": "int",
+									"m_type": "int",
 									"direction": "return"
 								}
 							]
@@ -4935,7 +4935,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFF+qBWK6M3Z8Y="
 					},
-					"name": "Medkit",
+					"m_name": "Medkit",
 					"attributes": [
 						{
 							"_type": "UMLAttribute",
@@ -4943,9 +4943,9 @@
 							"_parent": {
 								"$ref": "AAAAAAF9LhIjEolx0/4="
 							},
-							"name": "name",
+							"m_name": "m_name",
 							"visibility": "private",
-							"type": "const string"
+							"m_type": "const string"
 						},
 						{
 							"_type": "UMLAttribute",
@@ -4953,9 +4953,9 @@
 							"_parent": {
 								"$ref": "AAAAAAF9LhIjEolx0/4="
 							},
-							"name": "health",
+							"m_name": "health",
 							"visibility": "private",
-							"type": "int"
+							"m_type": "int"
 						},
 						{
 							"_type": "UMLAttribute",
@@ -4963,9 +4963,9 @@
 							"_parent": {
 								"$ref": "AAAAAAF9LhIjEolx0/4="
 							},
-							"name": "cost",
+							"m_name": "cost",
 							"visibility": "private",
-							"type": "const int"
+							"m_type": "const int"
 						},
 						{
 							"_type": "UMLAttribute",
@@ -4973,9 +4973,9 @@
 							"_parent": {
 								"$ref": "AAAAAAF9LhIjEolx0/4="
 							},
-							"name": "weight",
+							"m_name": "m_weight",
 							"visibility": "private",
-							"type": "const int"
+							"m_type": "const int"
 						}
 					]
 				},
@@ -4985,7 +4985,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFF+qBWK6M3Z8Y="
 					},
-					"name": "Name",
+					"m_name": "Name",
 					"ownedElements": [
 						{
 							"_type": "UMLAssociation",
@@ -5023,7 +5023,7 @@
 							"_parent": {
 								"$ref": "AAAAAAF9Visyr9QAJRg="
 							},
-							"name": "NO"
+							"m_name": "NO"
 						},
 						{
 							"_type": "UMLEnumerationLiteral",
@@ -5031,7 +5031,7 @@
 							"_parent": {
 								"$ref": "AAAAAAF9Visyr9QAJRg="
 							},
-							"name": "M4"
+							"m_name": "M4"
 						},
 						{
 							"_type": "UMLEnumerationLiteral",
@@ -5039,7 +5039,7 @@
 							"_parent": {
 								"$ref": "AAAAAAF9Visyr9QAJRg="
 							},
-							"name": "AK"
+							"m_name": "AK"
 						}
 					]
 				},
@@ -5049,7 +5049,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFF+qBWK6M3Z8Y="
 					},
-					"name": "Type",
+					"m_name": "Type",
 					"ownedElements": [
 						{
 							"_type": "UMLAssociation",
@@ -5087,7 +5087,7 @@
 							"_parent": {
 								"$ref": "AAAAAAF9Vi0wPdTWopU="
 							},
-							"name": "NOT"
+							"m_name": "NOT"
 						},
 						{
 							"_type": "UMLEnumerationLiteral",
@@ -5095,7 +5095,7 @@
 							"_parent": {
 								"$ref": "AAAAAAF9Vi0wPdTWopU="
 							},
-							"name": "WEAPON"
+							"m_name": "WEAPON"
 						},
 						{
 							"_type": "UMLEnumerationLiteral",
@@ -5103,7 +5103,7 @@
 							"_parent": {
 								"$ref": "AAAAAAF9Vi0wPdTWopU="
 							},
-							"name": "AIDKIT"
+							"m_name": "AIDKIT"
 						},
 						{
 							"_type": "UMLEnumerationLiteral",
@@ -5111,7 +5111,7 @@
 							"_parent": {
 								"$ref": "AAAAAAF9Vi0wPdTWopU="
 							},
-							"name": "AMMO"
+							"m_name": "AMMO"
 						}
 					]
 				},
@@ -5121,7 +5121,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFF+qBWK6M3Z8Y="
 					},
-					"name": "Object",
+					"m_name": "Object",
 					"ownedElements": [
 						{
 							"_type": "UMLAssociation",
@@ -5209,7 +5209,7 @@
 							"_parent": {
 								"$ref": "AAAAAAF9VjN6N9YeWL4="
 							},
-							"name": "5",
+							"m_name": "5",
 							"end1": {
 								"_type": "UMLAssociationEnd",
 								"_id": "AAAAAAF9WA2XI/q6xyY=",
@@ -5238,7 +5238,7 @@
 							"_parent": {
 								"$ref": "AAAAAAF9VjN6N9YeWL4="
 							},
-							"name": "5",
+							"m_name": "5",
 							"end1": {
 								"_type": "UMLAssociationEnd",
 								"_id": "AAAAAAF9WG0EIBXRpcI=",
@@ -5269,9 +5269,9 @@
 							"_parent": {
 								"$ref": "AAAAAAF9VjN6N9YeWL4="
 							},
-							"name": "type",
+							"m_name": "m_type",
 							"visibility": "protected",
-							"type": "type"
+							"m_type": "m_type"
 						},
 						{
 							"_type": "UMLAttribute",
@@ -5279,9 +5279,9 @@
 							"_parent": {
 								"$ref": "AAAAAAF9VjN6N9YeWL4="
 							},
-							"name": "weight",
+							"m_name": "m_weight",
 							"visibility": "protected",
-							"type": "int"
+							"m_type": "int"
 						},
 						{
 							"_type": "UMLAttribute",
@@ -5289,9 +5289,9 @@
 							"_parent": {
 								"$ref": "AAAAAAF9VjN6N9YeWL4="
 							},
-							"name": "name",
+							"m_name": "m_name",
 							"visibility": "protected",
-							"type": {
+							"m_type": {
 								"$ref": "AAAAAAF9Visyr9QAJRg="
 							}
 						}
@@ -5303,7 +5303,7 @@
 							"_parent": {
 								"$ref": "AAAAAAF9VjN6N9YeWL4="
 							},
-							"name": "getAmmo",
+							"m_name": "getAmmo",
 							"parameters": [
 								{
 									"_type": "UMLParameter",
@@ -5311,7 +5311,7 @@
 									"_parent": {
 										"$ref": "AAAAAAF9V+eKJ9k/HBE="
 									},
-									"type": "int&",
+									"m_type": "int&",
 									"direction": "return"
 								}
 							],
@@ -5323,7 +5323,7 @@
 							"_parent": {
 								"$ref": "AAAAAAF9VjN6N9YeWL4="
 							},
-							"name": "const getWeight",
+							"m_name": "const getWeight",
 							"parameters": [
 								{
 									"_type": "UMLParameter",
@@ -5331,7 +5331,7 @@
 									"_parent": {
 										"$ref": "AAAAAAF9V+iD3dnGWr8="
 									},
-									"type": "int",
+									"m_type": "int",
 									"direction": "return"
 								}
 							]
@@ -5342,7 +5342,7 @@
 							"_parent": {
 								"$ref": "AAAAAAF9VjN6N9YeWL4="
 							},
-							"name": "const getType",
+							"m_name": "const getType",
 							"parameters": [
 								{
 									"_type": "UMLParameter",
@@ -5350,7 +5350,7 @@
 									"_parent": {
 										"$ref": "AAAAAAF9V+jnX9oXCMY="
 									},
-									"type": {
+									"m_type": {
 										"$ref": "AAAAAAF9Vi0wPdTWopU="
 									},
 									"direction": "return"
@@ -5363,7 +5363,7 @@
 							"_parent": {
 								"$ref": "AAAAAAF9VjN6N9YeWL4="
 							},
-							"name": "const getName",
+							"m_name": "const getName",
 							"parameters": [
 								{
 									"_type": "UMLParameter",
@@ -5371,7 +5371,7 @@
 									"_parent": {
 										"$ref": "AAAAAAF9V+k1k9pouxA="
 									},
-									"type": {
+									"m_type": {
 										"$ref": "AAAAAAF9Visyr9QAJRg="
 									},
 									"direction": "return"
@@ -5384,7 +5384,7 @@
 							"_parent": {
 								"$ref": "AAAAAAF9VjN6N9YeWL4="
 							},
-							"name": "reload",
+							"m_name": "reload",
 							"parameters": [
 								{
 									"_type": "UMLParameter",
@@ -5392,8 +5392,8 @@
 									"_parent": {
 										"$ref": "AAAAAAF9V+tIeNzgVpM="
 									},
-									"name": "int",
-									"type": ""
+									"m_name": "int",
+									"m_type": ""
 								},
 								{
 									"_type": "UMLParameter",
@@ -5401,7 +5401,7 @@
 									"_parent": {
 										"$ref": "AAAAAAF9V+tIeNzgVpM="
 									},
-									"type": "void",
+									"m_type": "void",
 									"direction": "return"
 								}
 							],
@@ -5413,7 +5413,7 @@
 							"_parent": {
 								"$ref": "AAAAAAF9VjN6N9YeWL4="
 							},
-							"name": "getReloadCost",
+							"m_name": "getReloadCost",
 							"parameters": [
 								{
 									"_type": "UMLParameter",
@@ -5421,7 +5421,7 @@
 									"_parent": {
 										"$ref": "AAAAAAF9V+15e95dbAg="
 									},
-									"type": "int",
+									"m_type": "int",
 									"direction": "return"
 								}
 							],
@@ -5433,7 +5433,7 @@
 							"_parent": {
 								"$ref": "AAAAAAF9VjN6N9YeWL4="
 							},
-							"name": "getShootCost",
+							"m_name": "getShootCost",
 							"parameters": [
 								{
 									"_type": "UMLParameter",
@@ -5441,7 +5441,7 @@
 									"_parent": {
 										"$ref": "AAAAAAF9V+3E7t7JAVE="
 									},
-									"type": "int",
+									"m_type": "int",
 									"direction": "return"
 								}
 							],
@@ -5453,7 +5453,7 @@
 							"_parent": {
 								"$ref": "AAAAAAF9VjN6N9YeWL4="
 							},
-							"name": "getDamage",
+							"m_name": "getDamage",
 							"parameters": [
 								{
 									"_type": "UMLParameter",
@@ -5461,7 +5461,7 @@
 									"_parent": {
 										"$ref": "AAAAAAF9WGHSPRPRQxQ="
 									},
-									"type": "int",
+									"m_type": "int",
 									"direction": "return"
 								}
 							],
@@ -5473,7 +5473,7 @@
 							"_parent": {
 								"$ref": "AAAAAAF9VjN6N9YeWL4="
 							},
-							"name": "fire",
+							"m_name": "fire",
 							"parameters": [
 								{
 									"_type": "UMLParameter",
@@ -5481,7 +5481,7 @@
 									"_parent": {
 										"$ref": "AAAAAAF9WGKLQhSD3Eo="
 									},
-									"type": "bool",
+									"m_type": "bool",
 									"direction": "return"
 								}
 							],
@@ -5495,7 +5495,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFF+qBWK6M3Z8Y="
 					},
-					"name": "Aidkit",
+					"m_name": "Aidkit",
 					"ownedElements": [
 						{
 							"_type": "UMLGeneralization",
@@ -5518,9 +5518,9 @@
 							"_parent": {
 								"$ref": "AAAAAAF9V/pG8+oWxT8="
 							},
-							"name": "health",
+							"m_name": "health",
 							"visibility": "private",
-							"type": "int"
+							"m_type": "int"
 						},
 						{
 							"_type": "UMLAttribute",
@@ -5528,9 +5528,9 @@
 							"_parent": {
 								"$ref": "AAAAAAF9V/pG8+oWxT8="
 							},
-							"name": "cost",
+							"m_name": "cost",
 							"visibility": "private",
-							"type": "const int"
+							"m_type": "const int"
 						}
 					]
 				},
@@ -5540,7 +5540,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFF+qBWK6M3Z8Y="
 					},
-					"name": "Inventory",
+					"m_name": "Inventory",
 					"ownedElements": [
 						{
 							"_type": "UMLGeneralization",
@@ -5548,7 +5548,7 @@
 							"_parent": {
 								"$ref": "AAAAAAF9WAZkKvX2aH0="
 							},
-							"name": "5",
+							"m_name": "5",
 							"source": {
 								"$ref": "AAAAAAF9WAZkKvX2aH0="
 							},
@@ -5562,7 +5562,7 @@
 							"_parent": {
 								"$ref": "AAAAAAF9WAZkKvX2aH0="
 							},
-							"name": "5",
+							"m_name": "5",
 							"ownedElements": [
 								{
 									"_type": "UMLConstraint",
@@ -5570,7 +5570,7 @@
 									"_parent": {
 										"$ref": "AAAAAAF9WAuwxPh4JMg="
 									},
-									"name": "Constraint1"
+									"m_name": "Constraint1"
 								}
 							],
 							"end1": {
@@ -5602,7 +5602,7 @@
 							"_parent": {
 								"$ref": "AAAAAAF9WAZkKvX2aH0="
 							},
-							"name": "1",
+							"m_name": "1",
 							"end1": {
 								"_type": "UMLAssociationEnd",
 								"_id": "AAAAAAF9WBUj3gWwbAo=",
@@ -5687,7 +5687,7 @@
 							"_parent": {
 								"$ref": "AAAAAAF9WAZkKvX2aH0="
 							},
-							"name": "1",
+							"m_name": "1",
 							"end1": {
 								"_type": "UMLAssociationEnd",
 								"_id": "AAAAAAF9WG5+CBfA78o=",
@@ -5718,9 +5718,9 @@
 							"_parent": {
 								"$ref": "AAAAAAF9WAZkKvX2aH0="
 							},
-							"name": "table",
+							"m_name": "table",
 							"visibility": "private",
-							"type": "Object*"
+							"m_type": "Object*"
 						},
 						{
 							"_type": "UMLAttribute",
@@ -5728,8 +5728,8 @@
 							"_parent": {
 								"$ref": "AAAAAAF9WAZkKvX2aH0="
 							},
-							"name": "size",
-							"type": "static const int"
+							"m_name": "size",
+							"m_type": "static const int"
 						},
 						{
 							"_type": "UMLAttribute",
@@ -5737,8 +5737,8 @@
 							"_parent": {
 								"$ref": "AAAAAAF9WAZkKvX2aH0="
 							},
-							"name": "Attribute1",
-							"type": ""
+							"m_name": "Attribute1",
+							"m_type": ""
 						}
 					],
 					"operations": [
@@ -5748,7 +5748,7 @@
 							"_parent": {
 								"$ref": "AAAAAAF9WAZkKvX2aH0="
 							},
-							"name": "const getItem",
+							"m_name": "const getItem",
 							"parameters": [
 								{
 									"_type": "UMLParameter",
@@ -5756,8 +5756,8 @@
 									"_parent": {
 										"$ref": "AAAAAAF9WApiaPfU8zc="
 									},
-									"name": "int",
-									"type": ""
+									"m_name": "int",
+									"m_type": ""
 								},
 								{
 									"_type": "UMLParameter",
@@ -5765,7 +5765,7 @@
 									"_parent": {
 										"$ref": "AAAAAAF9WApiaPfU8zc="
 									},
-									"type": "Object*",
+									"m_type": "Object*",
 									"direction": "return"
 								}
 							]
@@ -5776,7 +5776,7 @@
 							"_parent": {
 								"$ref": "AAAAAAF9WAZkKvX2aH0="
 							},
-							"name": "additem",
+							"m_name": "additem",
 							"parameters": [
 								{
 									"_type": "UMLParameter",
@@ -5784,8 +5784,8 @@
 									"_parent": {
 										"$ref": "AAAAAAF9WFMJFQ12obA="
 									},
-									"name": "object",
-									"type": "Object*"
+									"m_name": "object",
+									"m_type": "Object*"
 								}
 							]
 						}
@@ -5797,7 +5797,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFF+qBWK6M3Z8Y="
 					},
-					"name": "vector"
+					"m_name": "vector"
 				},
 				{
 					"_type": "UMLClass",
@@ -5805,7 +5805,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFF+qBWK6M3Z8Y="
 					},
-					"name": "Class1"
+					"m_name": "Class1"
 				},
 				{
 					"_type": "UMLInterface",
@@ -5813,7 +5813,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFF+qBWK6M3Z8Y="
 					},
-					"name": "Interface1"
+					"m_name": "Interface1"
 				},
 				{
 					"_type": "UMLPackage",
@@ -5821,7 +5821,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFF+qBWK6M3Z8Y="
 					},
-					"name": "Package1"
+					"m_name": "Package1"
 				}
 			]
 		}

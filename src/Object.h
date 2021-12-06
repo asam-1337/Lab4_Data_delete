@@ -23,35 +23,21 @@ enum Name{
 
 class Object {
 protected:
-    int weight = 0;
-    Type type = NOT;
-    Name name = NO;
+    int m_weight = 0;
+    Type m_type = NOT;
+    Name m_name = NO;
 public:
     Object() = default;
 
-    explicit Object(Type type, Name name, int weight) : weight(weight), type(type), name(name) {}
+    Object(Type type, Name name, int weight) : m_weight(weight), m_type(type), m_name(name) {}
 
-    //virtual void reload(int& ammo) = 0;
+    [[nodiscard]] virtual int getWeight() const { return m_weight; }
 
-    //virtual bool fire() = 0;
+    [[nodiscard]] virtual Type getType() const { return m_type; }
 
-    //[[nodiscard]] virtual int& getAmmo() = 0;
+    [[nodiscard]] virtual Name getName() const { return m_name; }
 
-    //[[nodiscard]] virtual int getAmmo() const = 0;
-
-    //[[nodiscard]] virtual int getMaxAmmo() const = 0;
-
-    //[[nodiscard]] virtual int getReloadCost() const = 0;
-
-    //[[nodiscard]] virtual int getShootCost() const = 0;
-
-    //[[nodiscard]] virtual int getDamage() const = 0;
-
-    [[nodiscard]] virtual int getWeight() const { return weight; }
-
-    [[nodiscard]] virtual Type getType() const { return type; }
-
-    [[nodiscard]] virtual Name getName() const { return name; }
+    void selectType (Type type) { m_type = type; }
 
 };
 #endif //LAB4_DATA_DELETE_OBJECT_H
