@@ -23,3 +23,17 @@ Creature::Creature(Creature & src) {
     this->curr_weight = src.curr_weight;
     this->max_weight = src.max_weight;
 }
+
+int Creature::getWeight() const {
+    return curr_weight;
+}
+
+void Creature::walk() {
+    curr_points -= walk_cost;
+}
+
+void Creature::getHit(int damage) {
+    if (curr_health - damage <= 0)
+        throw std::logic_error("You are die");
+    curr_health -= damage;
+}

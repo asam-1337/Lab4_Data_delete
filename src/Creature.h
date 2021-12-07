@@ -6,6 +6,7 @@
 #define LAB4_DATA_DELETE_CREATURE_H
 
 #include <string>
+#include <iostream>
 
 class Creature {
 protected:
@@ -24,6 +25,11 @@ public:
 
     Creature(Creature & src);
 
+    virtual int getWeight() const;
+
+    virtual void walk();
+
+    virtual void getHit(int damage);
 };
 
 #endif //LAB4_DATA_DELETE_CREATURE_H

@@ -10,7 +10,7 @@
 #include "Object.h"
 #include "Weapon.h"
 #include "Aidkit.h"
-#include "Ammo_container.h"
+#include "AmmoContainer.h"
 
 template <class T>
 class InventoryIt {

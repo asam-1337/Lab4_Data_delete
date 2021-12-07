@@ -20,7 +20,7 @@ void Operative::selectWeapon(int n) {
 
 void Operative::reload() {
     auto *weapon = dynamic_cast<Weapon *>(m_inventory[i_selectedWeapon]);
-    auto *ammo = dynamic_cast<Ammo_container *>(m_inventory[i_selectedWeapon + 2]);
+    auto *ammo = dynamic_cast<AmmoContainer *>(m_inventory[i_selectedWeapon + 2]);
     weapon->reload(ammo->getAmmo());
 }
 

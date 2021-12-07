@@ -2,18 +2,18 @@
 // Created by chicha-man on 13.11.2021.
 //
 
-#ifndef LAB4_DATA_DELETE_AMMO_CONTAINER_H
-#define LAB4_DATA_DELETE_AMMO_CONTAINER_H
+#ifndef LAB4_DATA_DELETE_AMMOCONTAINER_H
+#define LAB4_DATA_DELETE_AMMOCONTAINER_H
 
 #include <string>
 #include "Object.h"
 
-class Ammo_container : public Object{
+class AmmoContainer : public Object{
 private:
     int ammo = 0;
     const int max_ammo = 100;
 public:
-    Ammo_container(Name name, int ammo): Object(AMMO, name,20), ammo(ammo) {}
+    AmmoContainer(Name name, int ammo): Object(AMMO, name, 20), ammo(ammo) {}
 
     [[nodiscard]] int& getAmmo() { return ammo; }
 
@@ -21,4 +21,4 @@ public:
 };
 
 
-#endif //LAB4_DATA_DELETE_AMMO_CONTAINER_H
+#endif //LAB4_DATA_DELETE_AMMOCONTAINER_H

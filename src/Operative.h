@@ -9,7 +9,7 @@
 #include <SFML/Graphics.hpp>
 #include "Object.h"
 #include "Weapon.h"
-#include "Ammo_container.h"
+#include "AmmoContainer.h"
 #include "Aidkit.h"
 #include "Inventory.h"
 #include "Furajir.h"

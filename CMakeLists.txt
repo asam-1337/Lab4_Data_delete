@@ -5,6 +5,6 @@ set(CMAKE_CXX_STANDARD 20)
 
 find_package(SFML 2.5 COMPONENTS graphics audio REQUIRED)
 
-add_executable(Lab4_Data_delete main.cpp src/Operative.cpp src/Operative.h src/Weapon.cpp src/Weapon.h src/Ammo_container.h src/Aidkit.h src/Inventory.h src/Creature.cpp src/Creature.h Map.cpp Map.h src/Wild_creature.cpp src/Wild_creature.h src/Object.h src/Furajir.h src/Furajir.cpp)
+add_executable(Lab4_Data_delete main.cpp src/Operative.cpp src/Operative.h src/Weapon.cpp src/Weapon.h src/AmmoContainer.h src/Aidkit.h src/Inventory.h src/Creature.cpp src/Creature.h Map.cpp Map.h src/WildCreature.cpp src/WildCreature.h src/Object.h src/Furajir.h src/Furajir.cpp src/SmartCreature.cpp src/SmartCreature.h)
 
 target_link_libraries(Lab4_Data_delete sfml-graphics sfml-audio)
