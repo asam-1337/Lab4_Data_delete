@@ -6,7 +6,6 @@
 #define LAB4_DATA_DELETE_OPERATIVE_H
 
 #include <string>
-#include <SFML/Graphics.hpp>
 #include "Object.h"
 #include "Weapon.h"
 #include "AmmoContainer.h"
@@ -16,12 +15,10 @@
 
 class Operative : public Furajir {
 private:
-    //Inventory<Object*> m_inventory;
     int i_selectedWeapon = 0;
 public:
-    sf::Sprite skin;
 
-    Operative(const sf::Texture& t, int name, float x = 0, float y = 0);
+    Operative();
 
     void selectWeapon(int n);
 

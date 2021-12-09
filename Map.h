@@ -9,7 +9,8 @@
 #include <SFML/Graphics.hpp>
 
 class Map {
-private:
+public:
+    float offsetX = 0, offsetY = 0;
     static const int height = 12;
     const int width = 40;
     sf::String TileMap[height] = {

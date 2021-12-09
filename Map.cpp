@@ -15,7 +15,7 @@ void Map::print(sf::RenderWindow & window, sf::RectangleShape & rectangle)
 
             if (TileMap[i][j] == ' ') continue;
 
-            rectangle.setPosition(j*32, i*32);
+            rectangle.setPosition(j*32 - offsetX, i*32 - offsetY);
             window.draw(rectangle);
         }
 }

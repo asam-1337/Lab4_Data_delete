@@ -4,14 +4,9 @@
 
 #include "Operative.h"
 
-Operative::Operative(const sf::Texture& t, int name, float x, float y)
+Operative::Operative()
     : Furajir("1",100, 100, 100,
-               2, 5, 10, 0,50)
-{
-    skin.setTexture(t);
-    skin.setPosition(x, y);
-    skin.setTextureRect(sf::IntRect(0, 244, 40, 50));
-}
+               2, 5, 10, 0,50) {}
 
 void Operative::selectWeapon(int n) {
     if (m_inventory[n]->getType() != NOT)

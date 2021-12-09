@@ -1,22 +1,62 @@
 #include <iostream>
 
 #include <SFML/Graphics.hpp>
-
+#include "graphics/GraphicCreature.h"
 #include "src/Operative.h"
 #include "Map.h"
 using namespace sf;
 
+void control(GraphicCreature & player, float & time , Map & map, int & n, int screenWidth, int screenHeight) {
+    if (Keyboard::isKeyPressed(Keyboard::A)) {
+        player.dx = -0.1;
+    }
+
+    if (Keyboard::isKeyPressed(Keyboard::D)) {
+        player.dx = 0.1;
+        }
+
+    if (Keyboard::isKeyPressed(Keyboard::W)) {
+        player.dy = -0.1;
+    }
+
+    if (Keyboard::isKeyPressed(Keyboard::S)) {
+        player.dy = 0.1;
+    }
+
+    if (Keyboard::isKeyPressed(Keyboard::Left)) {
+        if (n > 0)
+            n--;
+    }
+
+    if (Keyboard::isKeyPressed(Keyboard::Right)) {
+        if (n < 1)
+            n++;
+    }
+
+    player.update(time, map);
+
+    if (player.rect.left > 300)
+        map.offsetX = player.rect.left - 300;
+    if (player.rect.top > 240)
+        map.offsetY = player.rect.top - 240;
+}
+
 int main()
 {
-    RenderWindow window(VideoMode(1000, 1000), "[DATA DELETED]");
+    int screenWidth = 600;
+    int screenHeight = 400;
+    
+    RenderWindow window(VideoMode(screenWidth, screenHeight), "[DATA DELETED]");
 
     Texture t;
     t.loadFromFile("../fang.png");
 
-    float currentFrame = 0;
+    GraphicCreature players[2];
+    for (auto & player : players)
+        player.load(t, 2, 200, 100, new Operative());
 
-    Operative pl1(t, 1, 50, 100);
     Map map;
+    int n = 0;
 
     Clock clock;
 
@@ -33,48 +73,18 @@ int main()
             if (event.type == sf::Event::Closed)
                 window.close();
         }
-
-        pl1.skin.setTextureRect(sf::IntRect(0, 190, 40, 50));
-
-        if (Keyboard::isKeyPressed(Keyboard::A))
-        {
-            pl1.skin.move(-0.1 * time, 0);
-            currentFrame += 0.005 * time;
-            if (currentFrame >= 6) currentFrame -= 6;
-            pl1.skin.setTextureRect(sf::IntRect(40 * int(currentFrame) + 40, 244, -40, 50));
+        for (auto & player : players) {
+            player.update(time, map);
+            player.skin.setTextureRect(sf::IntRect(0, 190, 40, 50));
         }
-
-        if (Keyboard::isKeyPressed(Keyboard::D))
-        {
-            pl1.skin.move(0.1 * time, 0);
-            currentFrame += 0.005 * time;
-            if (currentFrame >= 6) currentFrame -= 6;
-            pl1.skin.setTextureRect(sf::IntRect(40 * int(currentFrame), 244, 40, 50));
-        }
-
-        if (Keyboard::isKeyPressed(Keyboard::W))
-        {
-            pl1.skin.move(0, -0.1 * time);
-        }
-
-        if (Keyboard::isKeyPressed(Keyboard::S))
-        {
-            pl1.skin.move(0, 0.1 * time);
-        }
-
-        if (Keyboard::isKeyPressed(Keyboard::Num1))
-        {
-            pl1.selectWeapon(0);
-        }
-
-        if (Keyboard::isKeyPressed(Keyboard::Num2))
-        {
-            pl1.selectWeapon(0);
-        }
-
+        control(players[n], time, map, n, screenWidth, screenHeight);
+        
         window.clear(Color::White);
         map.print(window, rectangle);
-        window.draw(pl1.skin);
+
+        for (auto & player : players)
+            window.draw(player.skin);
+
         window.display();
     }
 

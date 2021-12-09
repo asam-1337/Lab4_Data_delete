@@ -11,7 +11,7 @@ Furajir::Furajir(std::string name, int max_health, int curr_points, int max_poin
 
 void Furajir::takeItem(Object* item) {
     if (item->getWeight() > (max_weight - curr_weight))
-        throw std::logic_error("Your m_inventory is overloaded");
+        throw std::logic_error("Your inventory is overloaded");
     switch (item->getType())
     {
         case WEAPON:
