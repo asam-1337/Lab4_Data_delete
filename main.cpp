@@ -2,6 +2,7 @@
 
 #include <SFML/Graphics.hpp>
 #include "graphics/GraphicCreature.h"
+#include "src/MyVector.h"
 #include "src/Operative.h"
 #include "Map.h"
 using namespace sf;
@@ -51,9 +52,7 @@ int main()
     Texture t;
     t.loadFromFile("../fang.png");
 
-    GraphicCreature players[2];
-    for (auto & player : players)
-        player.load(t, 2, 200, 100, new Operative());
+    MyVector<GraphicCreature*> units;
 
     Map map;
     int n = 0;
@@ -77,6 +76,10 @@ int main()
             player.update(time, map);
             player.skin.setTextureRect(sf::IntRect(0, 190, 40, 50));
         }
+
+        enemies[0].update(time, map);
+        enemies[0].skin.setTextureRect(sf::IntRect(0, 190, 40, 50));
+
         control(players[n], time, map, n, screenWidth, screenHeight);
         
         window.clear(Color::White);
@@ -84,7 +87,7 @@ int main()
 
         for (auto & player : players)
             window.draw(player.skin);
-
+        window.draw(enemies[0].skin);
         window.display();
     }
 

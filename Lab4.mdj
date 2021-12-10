@@ -152,7 +152,7 @@
 											"top": 933,
 											"width": 171.58984375,
 											"height": 13,
-											"text": "-m_inventory: Inventory",
+											"text": "-m_inventory: MyVector",
 											"horizontalAlignment": 0
 										},
 										{
@@ -3483,7 +3483,7 @@
 											"top": 695,
 											"width": 171.58984375,
 											"height": 13,
-											"text": "Inventory"
+											"text": "MyVector"
 										},
 										{
 											"_type": "LabelView",
@@ -4300,7 +4300,7 @@
 							},
 							"m_name": "m_inventory",
 							"visibility": "private",
-							"m_type": "Inventory"
+							"m_type": "MyVector"
 						},
 						{
 							"_type": "UMLAttribute",
@@ -5540,7 +5540,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFF+qBWK6M3Z8Y="
 					},
-					"m_name": "Inventory",
+					"m_name": "MyVector",
 					"ownedElements": [
 						{
 							"_type": "UMLGeneralization",

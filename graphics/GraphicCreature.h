@@ -13,7 +13,7 @@
 class GraphicCreature {
 
 public:
-    Creature * creature = nullptr;
+    Creature * m_creature = nullptr;
 
     float dx = 0, dy = 0;
     float currentFrame = 0;
@@ -26,9 +26,11 @@ public:
 
     void load(const sf::Texture& t, int name, float x, float y, Creature * creature);
 
-    void collision(int dir, Map map);
+    virtual void collision(int dir, Map map);
 
-    void update(float time, Map & map);
+    virtual void update(float time, Map & map);
+
+    virtual void getBlood();
 };
 
 

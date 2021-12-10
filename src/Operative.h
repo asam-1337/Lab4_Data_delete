@@ -10,7 +10,7 @@
 #include "Weapon.h"
 #include "AmmoContainer.h"
 #include "Aidkit.h"
-#include "Inventory.h"
+#include "MyVector.h"
 #include "Furajir.h"
 
 class Operative : public Furajir {
@@ -20,11 +20,13 @@ public:
 
     Operative();
 
+    int getDamage() const;
+
     void selectWeapon(int n);
 
     void reload();
 
-    bool fire();
+    bool fire(Creature * creature);
 };
 
 

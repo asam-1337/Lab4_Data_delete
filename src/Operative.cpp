@@ -19,8 +19,14 @@ void Operative::reload() {
     weapon->reload(ammo->getAmmo());
 }
 
-bool Operative::fire() {
-    if (accuracy <= rand() % 10 + 1)
+bool Operative::fire(Creature * creature) {
+    if (accuracy <= rand() % 10 + 1) {
+        creature->getHit(getDamage());
         return true;
+    }
     return false;
+}
+
+int Operative::getDamage() const {
+    return dynamic_cast<Weapon *>(m_inventory[i_selectedWeapon])->getDamage();
 }

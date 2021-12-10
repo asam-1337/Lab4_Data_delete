@@ -4,19 +4,16 @@
 
 #include "GraphicCreature.h"
 
-GraphicCreature::GraphicCreature(const sf::Texture& t, int name, float x, float y, Creature * creature) : creature(creature){
+GraphicCreature::GraphicCreature(const sf::Texture& t, int name, float x, float y, Creature * creature) : m_creature(creature){
     skin.setTexture(t);
-    //skin.setPosition(x, y);
-    skin.setTextureRect(sf::IntRect(0, 244, 40, 50));
     rect = sf::FloatRect(x, y, 40, 50);
     dx = dy = 0;
     currentFrame = 0;
 }
 
 void GraphicCreature::load(const sf::Texture& t, int name, float x, float y, Creature * creature) {
+    m_creature = creature;
     skin.setTexture(t);
-    //skin.setPosition(x, y);
-    //skin.setTextureRect(sf::IntRect(0, 244, 40, 50));
     rect = sf::FloatRect(x, y, 40, 50);
     dx = dy = 0;
     currentFrame = 0;
@@ -54,4 +51,8 @@ void GraphicCreature::update(float time, Map & map) {
 
     dx = 0;
     dy = 0;
+}
+
+void GraphicCreature::getBlood() {
+
 }

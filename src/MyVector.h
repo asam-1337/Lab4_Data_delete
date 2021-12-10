@@ -2,8 +2,8 @@
 // Created by chicha-man on 13.11.2021.
 //
 
-#ifndef LAB4_DATA_DELETE_INVENTORY_H
-#define LAB4_DATA_DELETE_INVENTORY_H
+#ifndef LAB4_DATA_DELETE_MYVECTOR_H
+#define LAB4_DATA_DELETE_MYVECTOR_H
 
 #include <map>
 #include <vector>
@@ -13,7 +13,7 @@
 #include "AmmoContainer.h"
 
 template <class T>
-class InventoryIt {
+class MyVectorIt {
 
 private:
 
@@ -21,15 +21,15 @@ private:
 
 public:
 
-    InventoryIt() : m_curr(nullptr){}
+    MyVectorIt() : m_curr(nullptr){}
 
-    explicit InventoryIt(T *it) : m_curr(it){}
+    explicit MyVectorIt(T *it) : m_curr(it){}
 
-    bool operator != (const InventoryIt & it) const {
+    bool operator != (const MyVectorIt & it) const {
         return m_curr != it.m_curr;
     }
 
-    bool operator == (const InventoryIt & it) const {
+    bool operator == (const MyVectorIt & it) const {
         return m_curr == it.m_curr;
     }
 
@@ -39,13 +39,13 @@ public:
         throw std::logic_error("illegal value for Iterator");
     }
 
-    InventoryIt operator ++ () {
+    MyVectorIt operator ++ () {
         ++m_curr;
         return *this;
     }
 
-    InventoryIt operator ++ (int) {
-        InventoryIt res;
+    MyVectorIt operator ++ (int) {
+        MyVectorIt res;
         res.m_curr = m_curr;
         ++m_curr;
         return res;
@@ -53,7 +53,7 @@ public:
 };
 
 template <class T>
-class Inventory {
+class MyVector {
 
 private:
 
@@ -63,33 +63,33 @@ private:
 
 public:
 
-    Inventory()
+    MyVector()
     {
         m_table = new T[5];
     }
 
-    explicit Inventory(int n)
+    explicit MyVector(int n)
     {
         m_table = new T[n];
     }
 
-    Inventory(const Inventory & other) : m_size(other.m_size), m_curr(other.m_curr), m_table(new T[other.m_size])
+    MyVector(const MyVector & other) : m_size(other.m_size), m_curr(other.m_curr), m_table(new T[other.m_size])
     {
         for (int i = 0; i < m_curr; i++)
             m_table[i] = other.m_table[i];
     }
 
-    Inventory(Inventory && other) noexcept : m_size(other.m_size), m_curr(other.m_curr), m_table(other.m_table)
+    MyVector(MyVector && other) noexcept : m_size(other.m_size), m_curr(other.m_curr), m_table(other.m_table)
     {
         other.m_table = nullptr;
     }
 
-    ~Inventory()
+    ~MyVector()
     {
         delete[] m_table;
     }
 
-    Inventory & operator = (const Inventory & other)
+    MyVector & operator = (const MyVector & other)
     {
         if (this != &other){
             delete[] m_table;
@@ -102,7 +102,7 @@ public:
         return *this;
     }
 
-    Inventory & operator = (Inventory && other) noexcept
+    MyVector & operator = (MyVector && other) noexcept
     {
         if (this != &other){
             int tmp = m_curr;
@@ -128,17 +128,17 @@ public:
         return m_table[n];
     }
 
-    friend class InventoryIt<T>;
-    typedef class InventoryIt<T> Iterator;
+    friend class MyVectorIt<T>;
+    typedef class MyVectorIt<T> Iterator;
 
     Iterator begin()
     {
-        return Inventory::Iterator(m_table);
+        return MyVector::Iterator(m_table);
     }
     Iterator end()
     {
-        return Inventory::Iterator(m_table + m_curr);
+        return MyVector::Iterator(m_table + m_curr);
     }
 };
 
-#endif //LAB4_DATA_DELETE_INVENTORY_H
+#endif //LAB4_DATA_DELETE_MYVECTOR_H
