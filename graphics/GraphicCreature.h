@@ -31,6 +31,13 @@ public:
     virtual void update(float time, Map & map);
 
     virtual void getBlood();
+
+    /*virtual bool operator != (const GraphicCreature & item) {
+        if (m_creature == item.m_creature)
+            return false;
+        return true;
+    }*/
+
 };
 
 

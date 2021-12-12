@@ -22,7 +22,7 @@ public:
 
     void takeItem(Object *item);
 
-    void throwItem(int n);
+    void throwItem(Object * item);
 };
 
 
