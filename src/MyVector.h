@@ -5,26 +5,27 @@
 #ifndef LAB4_DATA_DELETE_MYVECTOR_H
 #define LAB4_DATA_DELETE_MYVECTOR_H
 
-#include <map>
-#include <vector>
-#include "../graphics/GraphicCreature.h"
-#include "Object.h"
-#include "Weapon.h"
-#include "Aidkit.h"
-#include "AmmoContainer.h"
+
+#include <memory>
+#include <iostream>
+#include <iterator>
+#include <initializer_list>
+
 
 template <class T>
 class MyVectorIt {
 
 private:
 
-    T *m_curr;
+    T * m_curr;
 
 public:
 
     MyVectorIt() : m_curr(nullptr){}
 
-    explicit MyVectorIt(T *it) : m_curr(it){}
+    explicit MyVectorIt(T * ptr) : m_curr(ptr) {}
+
+    MyVectorIt(const MyVectorIt & it) : m_curr(it.m_curr) {}
 
     bool operator != (const MyVectorIt & it) const {
         return m_curr != it.m_curr;
@@ -34,10 +35,11 @@ public:
         return m_curr == it.m_curr;
     }
 
-    T operator * () {
-        if (m_curr)
-            return *m_curr;
-        throw std::logic_error("illegal value for Iterator");
+    T & operator * () {
+        return *m_curr;
+    }
+    T * operator -> () {
+        return m_curr;
     }
 
     MyVectorIt & operator ++ () {
@@ -51,9 +53,10 @@ public:
     }
 };
 
-
 template <class T>
 class MyVector {
+
+    friend class MyVectorIt<T>;
 
 private:
 
@@ -90,7 +93,7 @@ public:
             delete[] m_table;
             m_size = other.m_size;
             m_curr = other.m_curr;
-            m_table = new T*[m_size];
+            m_table = new T[m_size];
             for (int i = 0; i < m_curr; ++i)
                 m_table[i] = other.m_table[i];
         }
@@ -116,17 +119,8 @@ public:
         return *this;
     }
 
-    T &operator [] (int n)
+    T &operator [] (const int n)
     {
-        if (m_curr >= m_size) {
-            T * old = m_table;
-            m_size++;
-            m_table = new T[m_size];
-            for (int j = 0; j < m_curr; j++)
-                m_table[j] = old[j];
-            delete [] old;
-        }
-        m_curr++;
         return m_table[n];
     }
     void push_back(T item) {
@@ -141,7 +135,7 @@ public:
         m_table[m_curr++] =  item;
     }
 
-    T operator [] (int n) const
+    const T & operator [] (const int n) const
     {
         return m_table[n];
     }
@@ -169,7 +163,7 @@ public:
         return m_table[i];
     }
 
-    T operator [] (T item) const
+    const T & operator [] (const T item) const
     {
         int i = find(item);
 
@@ -201,18 +195,16 @@ public:
         m_curr--;
     }
 
-    friend class MyVectorIt<T>;
+    //typedef class MyVectorIt<T> Iterator;
 
-    typedef class MyVectorIt<T> Iterator;
-
-    Iterator begin()
+    MyVectorIt<T> begin()
     {
-        return MyVector::Iterator(m_table);
+        return MyVectorIt(this->m_table);
     }
 
-    Iterator end()
+    MyVectorIt<T> end()
     {
-        return MyVector::Iterator(m_table + m_curr);
+        return MyVectorIt(this->m_table + m_curr);
     }
 };
 

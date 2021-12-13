@@ -5,9 +5,10 @@
 #include "Furajir.h"
 
 #include <utility>
+Furajir::Furajir(std::string name) : Creature(std::move(name),100,100,2,5,5,50) {}
 
-Furajir::Furajir(std::string name, int max_health, int curr_points, int max_points, int walk_cost, int accuracy, int view_rad, int curr_weight, int max_weight)
-: Creature(std::move(name), max_health, curr_points, max_points, walk_cost, accuracy, view_rad, curr_weight, max_weight) {}
+Furajir::Furajir(std::string name, int max_health, int curr_points, int max_points, int walk_cost, int accuracy, int view_rad,  int max_weight)
+: Creature(std::move(name), max_health, max_points, walk_cost, accuracy, view_rad, max_weight) {}
 
 void Furajir::takeItem(Object* item)
 {

@@ -21,11 +21,9 @@ protected:
     int curr_weight = 0;
     int max_weight = 0;
 public:
-    Creature(std::string name, int max_health, int curr_points, int max_points, int walk_cost, int accuracy, int view_rad, int curr_weight, int max_weight);
+    Creature(std::string name, int max_health, int max_points, int walk_cost, int accuracy, int view_rad, int max_weight);
 
-    Creature(Creature & src);
-
-    virtual int getWeight() const;
+    [[nodiscard]] virtual int getWeight() const;
 
     virtual void walk();
 

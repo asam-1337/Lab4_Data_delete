@@ -18,6 +18,8 @@ class Furajir : public Creature {
 protected:
     MyVector<Object*> m_inventory;
 public:
+    Furajir(std::string name);
+
     Furajir(std::string name, int max_health, int curr_points, int max_points, int walk_cost, int accuracy, int view_rad, int curr_weight, int max_weight);
 
     void takeItem(Object *item);

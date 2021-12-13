@@ -18,7 +18,7 @@ private:
     int i_selectedWeapon = 0;
 public:
 
-    Operative();
+    Operative(std::string);
 
     int getDamage() const;
 

@@ -55,15 +55,14 @@ int main()
     Texture t;
     t.loadFromFile("../fang.png");
 
-    MyVector<GraphicCreature*> units;
+    MyVector<GraphicCreature*> players;
+    players.push_back(new GraphicOperative(t, 1, 3 * 32, 2 * 32, new Operative()));
+    players.push_back(new GraphicOperative(t, 2, 7 * 32, 5 * 32, new Operative()));
 
-    units.push_back(new GraphicOperative(t, 1, 3*32, 2*32, new Operative()));
-    units.push_back(new GraphicOperative(t, 2, 3*32, 2*32, new Operative()));
+    MyVector<GraphicCreature*> enemies;
+    enemies.push_back(new GraphicOperative(t, 1, 3*32, 2*32, new Furajir("1", 100, 300, 300, 3, 0, 3, 0, 100)));
+    enemies.push_back(new GraphicOperative(t, 2, 7*32, 5*32, new Operative()));
 
-    GraphicCreature* player;
-    player = new GraphicOperative(t, 1, 3*32, 2*32, new Operative());
-    auto it = units.begin();
-    auto it2 = units.end();
     Map map;
     int n = 0;
 
@@ -83,32 +82,22 @@ int main()
                 window.close();
         }
 
-        for (int i = 0; i < 2; i++) {
-            units[i]->update(time, map);
-            units[i]->skin.setTextureRect(sf::IntRect(0, 190, 40, 50));
-        }/*
-        for (; it != it2; ++it) {
-            (*it)->update(time, map);
-            (*it)->skin.setTextureRect(sf::IntRect(0, 190, 40, 50));
-        }*/
-        /*
-        for (auto unit : units) {
-            unit->update(time, map);
-            unit->skin.setTextureRect(sf::IntRect(0, 190, 40, 50));
-        }*/
+        for (auto & player : players) {
+            player->update(time, map);
+            player->skin.setTextureRect(sf::IntRect(0, 190, 40, 50));
+        }
 
-        control(units[n], time, map, n, screenWidth, screenHeight);
+        control(players[n], time, map, n, screenWidth, screenHeight);
         
         window.clear(Color::White);
         map.print(window, rectangle);
-        //window.draw(player->skin);
-        for (int i = 0; i < 2; i++) {
-            window.draw(units[i]->skin);
-        }
-        /*
-        for (auto unit : units)
-            window.draw(unit->skin);
-        window.draw(enemies[0].skin);*/
+
+        for (auto player : players)
+            window.draw(player->skin);
+
+        for (auto enemy: enemies)
+            window.draw(enemy->skin);
+
         window.display();
     }
 
