@@ -5,8 +5,7 @@
 #include "Operative.h"
 
 Operative::Operative(std::string name)
-    : Furajir(std::move(name),100, 100,
-               2, 5, 5,50) {}
+    : Furajir(std::move(name),100,100,2,5,5,50) {}
 
 void Operative::selectWeapon(int n) {
     if (m_inventory[n]->getType() != NOT)
