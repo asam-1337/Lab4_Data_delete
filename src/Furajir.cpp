@@ -14,22 +14,25 @@ void Furajir::takeItem(Object* item)
 {
     if (item->getWeight() > (max_weight - curr_weight))
         throw std::logic_error("Your inventory is overloaded");
+    for(auto pair : m_inventory) {
+        if (pair.object == nullptr)
 
-    switch (item->getType())
-    {
-        case WEAPON:
-            m_inventory[item] = new Weapon(*dynamic_cast<Weapon*>(item));
-            break;
-        case AIDKIT:
-            m_inventory[item] = new Aidkit(*dynamic_cast<Aidkit*>(item));
-            break;
-        case AMMO:
-            m_inventory[item] = new AmmoContainer(*dynamic_cast<AmmoContainer*>(item));
-            break;
+
+        switch (item->getType()) {
+            case WEAPON:
+                m_inventory.push_back(Pair{0, new Weapon(*dynamic_cast<Weapon *>(item))});
+                break;
+            case AIDKIT:
+                m_inventory.push_back(Pair{1, new Aidkit(*dynamic_cast<Aidkit *>(item))});
+                break;
+            case AMMO:
+                m_inventory.push_back(Pair{2, new AmmoContainer(*dynamic_cast<AmmoContainer *>(item))});
+                break;
+        }
     }
 }
 
-void Furajir::throwItem(Object * item)
+void Furajir::throwItem(int indx)
 {
-    m_inventory.erase(item);
+    m_inventory.erase(indx);
 }

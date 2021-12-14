@@ -8,10 +8,20 @@
 
 #include <memory>
 #include <iostream>
-#include <iterator>
-#include <initializer_list>
 
-
+/**
+ * @brief Класс итертарор для шаблонного класса MyVector
+ *
+ *
+ *
+ * @param
+ * @param m_curr указатель на текущий элемнт
+ * @param operator != () оператор сравнения
+ * @param operator == () оператор сравнения
+ * @param operator * () оператор разыменовывания
+ *
+ * @return Program exit status
+ */
 template <class T>
 class MyVectorIt {
 
@@ -123,6 +133,12 @@ public:
     {
         return m_table[n];
     }
+
+    const T & operator [] (const int n) const
+    {
+        return m_table[n];
+    }
+
     void push_back(T item) {
         if (m_curr == m_size) {
             T * old = m_table;
@@ -133,11 +149,6 @@ public:
             delete [] old;
         }
         m_table[m_curr++] =  item;
-    }
-
-    const T & operator [] (const int n) const
-    {
-        return m_table[n];
     }
 
     T &operator [] (const T item)
@@ -159,7 +170,7 @@ public:
             return m_table[m_curr++];
         }
 
-        //delete m_table[i];
+        delete m_table[i];
         return m_table[i];
     }
 
@@ -173,7 +184,7 @@ public:
         return m_table[i];
     }
 
-    int find(T item) const
+    int find(int ind) const
     {
         for (int i = 0; i < m_curr; i++)
             if (typeid(item).name() == typeid(m_table[i]).name())

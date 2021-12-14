@@ -9,8 +9,11 @@
 
 class GraphicWild : public GraphicCreature {
 public:
-    GraphicWild(sf::Texture texture, int name, float x, float y, Creature * creature)
-    :GraphicCreature(texture, name, x, y, creature) {}
+    GraphicWild(sf::Texture texture, int name, float x, float y, Creature * creature);
+
+    void collision(int dir, Map map) override;
+
+    void update(float time, Map & map) override;
 };
 
 

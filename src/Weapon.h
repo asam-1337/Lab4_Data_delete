@@ -8,8 +8,10 @@
 #include <string>
 #include "Object.h"
 
+
 class Weapon : public Object{
 private:
+    Name name;
     const int damage = 0;
     const int reload_cost = 0;
     const int shoot_cost = 0;
@@ -28,6 +30,8 @@ public:
     [[nodiscard]] int getAmmo() const { return curr_ammo; }
 
     [[nodiscard]] int getMaxAmmo() const { return max_ammo; }
+
+    [[nodiscard]] Type getType() const override {return WEAPON;}
 
     bool fire();
 

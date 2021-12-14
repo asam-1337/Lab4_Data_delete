@@ -13,7 +13,7 @@
 class GraphicCreature {
 
 public:
-    Creature * m_creature = nullptr;
+    Creature * _creature = nullptr;
 
     float dx = 0, dy = 0;
     float currentFrame = 0;
@@ -32,12 +32,7 @@ public:
 
     virtual void getBlood();
 
-    /*virtual bool operator != (const GraphicCreature & item) {
-        if (m_creature == item.m_creature)
-            return false;
-        return true;
-    }*/
-
+    virtual ~GraphicCreature();
 };
 
 

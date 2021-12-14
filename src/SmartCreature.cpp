@@ -4,8 +4,9 @@
 
 #include "SmartCreature.h"
 
-void SmartCreature::takeWeapon(Weapon *weapon) {
+Object * SmartCreature::takeWeapon(Weapon *weapon) {
     if (!m_weapon)
         delete m_weapon;
     m_weapon = new Weapon(*weapon);
+    return weapon;
 }

@@ -12,10 +12,10 @@ class SmartCreature : public Creature {
 private:
     Weapon *m_weapon = nullptr;
 public:
-    explicit SmartCreature(std::string name) :
-    Creature(std::move(name), 50,50,50,
-    2,1,3,0,0){}
-    void takeWeapon(Weapon *weapon);
+    SmartCreature(std::string name)
+    : Creature(std::move(name),50,50,2,1,3,0){}
+
+    Object* takeWeapon(Weapon *weapon);
 };
 
 

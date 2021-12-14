@@ -4,12 +4,8 @@
 
 #include "Weapon.h"
 
-#include <utility>
-
 Weapon::Weapon(Name name, int damage, int reload_cost, int curr_ammo, int max_ammo, int weight)
-    : Object(WEAPON, name, weight),
-    damage(damage), reload_cost(reload_cost),
-    curr_ammo(curr_ammo), max_ammo(max_ammo) {}
+    : Object(weight), name(name), damage(damage), reload_cost(reload_cost), curr_ammo(curr_ammo), max_ammo(max_ammo) {}
 
 bool Weapon::fire() {
     if (curr_ammo == 0)

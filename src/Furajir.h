@@ -14,9 +14,14 @@
 #include "MyVector.h"
 #include "Creature.h"
 
+struct Pair {
+    int indx = 0;
+    Object * object = nullptr;
+};
+
 class Furajir : public Creature {
 protected:
-    MyVector<Object*> m_inventory;
+    MyVector<Pair> m_inventory;
 public:
     Furajir(std::string name);
 
@@ -24,7 +29,7 @@ public:
 
     void takeItem(Object *item);
 
-    void throwItem(Object * item);
+    void throwItem(int indx);
 };
 
 

@@ -18,9 +18,9 @@ private:
     int i_selectedWeapon = 0;
 public:
 
-    Operative(std::string);
+    Operative(std::string name);
 
-    int getDamage() const;
+    [[nodiscard]] int getDamage() const;
 
     void selectWeapon(int n);
 

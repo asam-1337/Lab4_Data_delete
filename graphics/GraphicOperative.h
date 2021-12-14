@@ -19,6 +19,10 @@ public:
     void reload();
 
     void selectWeapon(int n);
+
+    void update(float time, Map & map) override;
+
+    void collision(int dir, Map map) override;
 };
 
 

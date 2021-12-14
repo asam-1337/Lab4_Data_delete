@@ -12,6 +12,10 @@ class GraphicFurajir : public GraphicCreature {
 public:
     GraphicFurajir(const sf::Texture & texture, int name, float x, float y, Creature * creature)
         : GraphicCreature(texture,name, x, y, creature) {}
+
+    void collision(int dir, Map map) override;
+
+    void update(float time, Map & map) override;
 };
 
 

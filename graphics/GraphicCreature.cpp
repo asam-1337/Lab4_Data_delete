@@ -4,22 +4,27 @@
 
 #include "GraphicCreature.h"
 
-GraphicCreature::GraphicCreature(const sf::Texture& t, int name, float x, float y, Creature * creature) : m_creature(creature){
+GraphicCreature::GraphicCreature(const sf::Texture& t, int name, float x, float y, Creature * creature) : _creature(creature)
+{
     skin.setTexture(t);
     rect = sf::FloatRect(x, y, 40, 50);
     dx = dy = 0;
     currentFrame = 0;
 }
 
-void GraphicCreature::load(const sf::Texture& t, int name, float x, float y, Creature * creature) {
-    m_creature = creature;
+GraphicCreature::~GraphicCreature() { if (!_creature) delete _creature; }
+
+void GraphicCreature::load(const sf::Texture& t, int name, float x, float y, Creature * creature)
+{
+    _creature = creature;
     skin.setTexture(t);
     rect = sf::FloatRect(x, y, 40, 50);
     dx = dy = 0;
     currentFrame = 0;
 }
 
-void GraphicCreature::collision(int dir, Map map) {
+void GraphicCreature::collision(int dir, Map map)
+{
     for (int i = rect.top / 32; i < (rect.top + rect.height) / 32; i++)
         for (int j = rect.left / 32; j < (rect.left + rect.width) / 32; j++) {
             if (map.TileMap[i][j] == 'B') {
@@ -32,7 +37,8 @@ void GraphicCreature::collision(int dir, Map map) {
         }
 }
 
-void GraphicCreature::update(float time, Map & map) {
+void GraphicCreature::update(float time, Map & map)
+{
     rect.left += dx * time;
     collision(0, map);
 
@@ -53,6 +59,7 @@ void GraphicCreature::update(float time, Map & map) {
     dy = 0;
 }
 
-void GraphicCreature::getBlood() {
+void GraphicCreature::getBlood()
+{
 
 }
