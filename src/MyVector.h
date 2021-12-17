@@ -7,8 +7,21 @@
 
 
 #include <memory>
-#include <iostream>
+//#include <iostream>
 
+/**
+ * @brief Структура
+ *
+ * @param first индекс элемента
+ * @param second данные
+ *
+ */
+
+template<class IND, class DATA>
+struct Pair {
+    IND first;
+    DATA second;
+};
 /**
  * @brief Класс итертарор для шаблонного класса MyVector
  *
@@ -19,21 +32,22 @@
  * @param operator != () оператор сравнения
  * @param operator == () оператор сравнения
  * @param operator * () оператор разыменовывания
+ * @param operator ++ () постфиксный префиксный инкреммент
+ * @param operator ++ (int) постфиксный постфиксный инкреммент
  *
- * @return Program exit status
  */
-template <class T>
+template <class IND, class DATA>
 class MyVectorIt {
 
 private:
 
-    T * m_curr;
+    Pair<IND, DATA> * m_curr;
 
 public:
 
     MyVectorIt() : m_curr(nullptr){}
 
-    explicit MyVectorIt(T * ptr) : m_curr(ptr) {}
+    explicit MyVectorIt(Pair<IND, DATA> * ptr) : m_curr(ptr) {}
 
     MyVectorIt(const MyVectorIt & it) : m_curr(it.m_curr) {}
 
@@ -45,10 +59,11 @@ public:
         return m_curr == it.m_curr;
     }
 
-    T & operator * () {
+    Pair<IND, DATA> & operator * () {
         return *m_curr;
     }
-    T * operator -> () {
+
+    Pair<IND, DATA> * operator -> () {
         return m_curr;
     }
 
@@ -63,24 +78,40 @@ public:
     }
 };
 
-template <class T>
+/**
+ * @brief Шаблонный класс MyVector, который является вектором
+ *
+ *
+ *
+ * @param
+ * @param m_size полный размер вектора
+ * @param m_curr текущий размер вектора
+ * @param m_table указатель на адресс вектора
+ * @param operator = (const MyVector & other) копирующий оператор присваивания
+ * @param MyVector & operator = (MyVector && other) перемещающий оператор присваивания
+ * @param operator ++ (int) постфиксный постфиксный инкреммент
+ * @param find(int ind) функция поиска по индексу
+ *
+ */
+
+template <class IND, class DATA>
 class MyVector {
 
-    friend class MyVectorIt<T>;
+    friend class MyVectorIt<IND, DATA>;
 
 private:
 
     size_t m_size = 0;
     size_t m_curr = 0;
-    T *m_table;
+    Pair<IND, DATA> *m_table;
 
 public:
     MyVector() : m_size(1)
     {
-        m_table = new T[1];
+        m_table = new Pair<IND, DATA>[1];
     }
 
-    MyVector(const MyVector & other) : m_size(other.m_size), m_curr(other.m_curr), m_table(new T[other.m_size])
+    MyVector(const MyVector & other) : m_size(other.m_size), m_curr(other.m_curr), m_table(new Pair<IND, DATA>[other.m_size])
     {
         for (int i = 0; i < m_curr; i++)
             m_table[i] = other.m_table[i];
@@ -103,7 +134,7 @@ public:
             delete[] m_table;
             m_size = other.m_size;
             m_curr = other.m_curr;
-            m_table = new T[m_size];
+            m_table = new Pair<IND, DATA>[m_size];
             for (int i = 0; i < m_curr; ++i)
                 m_table[i] = other.m_table[i];
         }
@@ -122,36 +153,39 @@ public:
             m_size = other.m_size;
             other.m_size = tmp;
 
-            T *tarr = m_table;
+            Pair<IND, DATA> *tarr = m_table;
             m_table = other.m_table;
             other.m_table = tarr;
         }
         return *this;
     }
 
-    T &operator [] (const int n)
+    Pair<IND, DATA> &operator [] (const int n)
     {
         return m_table[n];
     }
 
-    const T & operator [] (const int n) const
+    const Pair<IND, DATA> & operator [] (const int n) const
     {
         return m_table[n];
     }
 
-    void push_back(T item) {
+    void push_back(IND ind, DATA item) {
         if (m_curr == m_size) {
-            T * old = m_table;
+            Pair<IND, DATA> * old = m_table;
             m_size++;
-            m_table = new T[m_size];
+            m_table = new Pair<IND, DATA>[m_size];
             for (int j = 0; j < m_curr; j++)
                 m_table[j] = old[j];
             delete [] old;
         }
-        m_table[m_curr++] =  item;
+
+        m_table[m_curr].first = ind;
+        m_table[m_curr].second = item;
+        m_curr++;
     }
 
-    T &operator [] (const T item)
+    Pair<IND, DATA> &operator [] (const Pair<IND, DATA> & item)
     {
         int i = find(item);
 
@@ -159,8 +193,8 @@ public:
         {
             if (m_curr >= m_size)
             {
-                T *tmp = m_table;
-                m_table = new T[++m_size];
+                Pair<IND, DATA> *tmp = m_table;
+                m_table = new Pair<IND, DATA>[++m_size];
 
                 for (int j = 0; j < m_curr; j++)
                     m_table[j] = tmp[j];
@@ -174,7 +208,7 @@ public:
         return m_table[i];
     }
 
-    const T & operator [] (const T item) const
+    const Pair<IND, DATA> & operator [] (const Pair<IND, DATA> item) const
     {
         int i = find(item);
 
@@ -187,15 +221,15 @@ public:
     int find(int ind) const
     {
         for (int i = 0; i < m_curr; i++)
-            if (typeid(item).name() == typeid(m_table[i]).name())
+            if (m_table[i].first == ind)
                 return i;
 
         return -1;
     }
 
-    void erase(T item)
+    void erase(int ind)
     {
-        int i = find(item);
+        int i = find(ind);
 
         if (i < 0)
             throw std::logic_error("Illegal index");
@@ -206,16 +240,16 @@ public:
         m_curr--;
     }
 
-    //typedef class MyVectorIt<T> Iterator;
+    typedef class MyVectorIt<IND, DATA> Iterator;
 
-    MyVectorIt<T> begin()
+    Iterator begin()
     {
-        return MyVectorIt(this->m_table);
+        return Iterator(this->m_table);
     }
 
-    MyVectorIt<T> end()
+    Iterator end()
     {
-        return MyVectorIt(this->m_table + m_curr);
+        return Iterator(this->m_table + m_curr);
     }
 };
 
