@@ -7,7 +7,6 @@
 
 
 #include <memory>
-//#include <iostream>
 
 /**
  * @brief Структура
@@ -252,5 +251,6 @@ public:
         return Iterator(this->m_table + m_curr);
     }
 };
+
 
 #endif //LAB4_DATA_DELETE_MYVECTOR_H

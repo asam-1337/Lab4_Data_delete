@@ -22,13 +22,15 @@ public:
 
     GraphicCreature() = default;
 
-    GraphicCreature(const sf::Texture& t, int name, float x, float y, Creature * creature);
+    GraphicCreature(const sf::Texture& t, int name, float x, float y, Creature * creature, float dx);
 
     void load(const sf::Texture& t, int name, float x, float y, Creature * creature);
 
-    virtual void collision(int dir, Map map);
+    virtual void collision(int dir, Map map) = 0;
 
-    virtual void update(float time, Map & map);
+    virtual void update(float time, Map & map) = 0;
+
+    virtual void looting(Map & map);
 
     virtual void getBlood();
 

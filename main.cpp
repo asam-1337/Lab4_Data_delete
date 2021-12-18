@@ -1,13 +1,13 @@
- #include <iostream>
-
+#include <vector>
 #include <SFML/Graphics.hpp>
 #include "graphics/GraphicCreature.h"
 #include "graphics/GraphicOperative.h"
 #include "graphics/GraphicFurajir.h"
 #include "graphics/GraphicWild.h"
-#include "src/MyVector.h"
-
 #include "Map.h"
+#include <sstream>
+//#include "src/MyVector.h"
+
 using namespace sf;
 
 void control(GraphicCreature * player, float & time , Map & map, int & n, int screenWidth, int screenHeight) {
@@ -39,29 +39,36 @@ void control(GraphicCreature * player, float & time , Map & map, int & n, int sc
 
     player->update(time, map);
 
-    if (player->rect.left > 300)
-        map.offsetX = player->rect.left - 300;
-    if (player->rect.top > 240)
-        map.offsetY = player->rect.top - 240;
+    if (player->rect.left > screenWidth/2)
+        map.offsetX = player->rect.left - screenWidth/2;
+    if (player->rect.top > screenHeight/2)
+        map.offsetY = player->rect.top - screenHeight/2;
 }
 
 int main()
 {
-    int screenWidth = 600;
-    int screenHeight = 400;
+    int screenWidth = 1280;
+    int screenHeight = 768;
     
     RenderWindow window(VideoMode(screenWidth, screenHeight), "[DATA DELETED]");
+
+    Font font;
+    font.loadFromFile("../CyrilicOld.ttf");
+    Text text("",font,20);
+    text.setColor(Color::Green);
+    text.setPosition(10,13*32);
+    float q = 0.001;
 
     Texture t;
     t.loadFromFile("../fang.png");
 
-    MyVector<GraphicCreature*> players;
-    players.push_back(new GraphicOperative(t, 1, 3 * 32, 2 * 32, new Operative()));
-    players.push_back(new GraphicOperative(t, 2, 7 * 32, 5 * 32, new Operative()));
+    std::vector<GraphicCreature*> players;
+    players.push_back(new GraphicOperative(t, 1, 3 * 32, 2 * 32, new Operative("1")));
+    players.push_back(new GraphicOperative(t, 2, 7 * 32, 5 * 32, new Operative("2")));
 
-    MyVector<GraphicCreature*> enemies;
-    enemies.push_back(new GraphicOperative(t, 1, 3*32, 2*32, new Furajir("1", 100, 300, 300, 3, 0, 3, 0, 100)));
-    enemies.push_back(new GraphicOperative(t, 2, 7*32, 5*32, new Operative()));
+    std::vector<GraphicCreature*> enemies;
+    enemies.push_back(new GraphicFurajir(t, 1, 5*32, 5*32, new Furajir("1")));
+    enemies.push_back(new GraphicFurajir(t, 1, 6*32, 6*32, new Furajir("2")));
 
     Map map;
     int n = 0;
@@ -82,15 +89,24 @@ int main()
                 window.close();
         }
 
-        for (auto & player : players) {
+        for (auto player : players) {
             player->update(time, map);
             player->skin.setTextureRect(sf::IntRect(0, 190, 40, 50));
         }
 
+        for (auto enemy : enemies) {
+            enemy->update(time, map);
+        }
+
         control(players[n], time, map, n, screenWidth, screenHeight);
-        
+
         window.clear(Color::White);
         map.print(window, rectangle);
+
+        std::ostringstream ss;
+        ss << n;
+        text.setString("Player name: " + ss.str());
+        window.draw(text);
 
         for (auto player : players)
             window.draw(player->skin);

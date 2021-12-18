@@ -13,8 +13,8 @@
 class WildCreature : public Creature {
 public:
     explicit WildCreature(std::string name) :
-        Creature(std::move(name), 50,50,50,
-                 2,1,3,0,0){}
+        Creature(std::move(name), 50,50,
+                 2,1,3,0) {}
 
 };
 

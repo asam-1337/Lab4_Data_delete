@@ -12,7 +12,7 @@
 class GraphicOperative : public GraphicCreature {
 public:
     GraphicOperative(const sf::Texture & texture, int name, float x, float y, Creature * creature)
-            : GraphicCreature(texture, name, x, y, creature) {}
+            : GraphicCreature(texture, name, x, y, creature, 0) {}
 
     void fire(Creature * creature);
 

@@ -5,7 +5,7 @@
 #include "GraphicWild.h"
 
 GraphicWild::GraphicWild(sf::Texture texture, int name, float x, float y, Creature * creature)
-    : GraphicCreature(texture, name, x, y, creature) {}
+    : GraphicCreature(texture, name, x, y, creature, 0) {}
 
 void GraphicWild::collision(int dir, Map map) {
     for (int i = rect.top / 32; i < (rect.top + rect.height) / 32; i++)

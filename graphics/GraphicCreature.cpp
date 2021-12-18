@@ -4,15 +4,13 @@
 
 #include "GraphicCreature.h"
 
-GraphicCreature::GraphicCreature(const sf::Texture& t, int name, float x, float y, Creature * creature) : _creature(creature)
+GraphicCreature::GraphicCreature(const sf::Texture& t, int name, float x, float y, Creature * creature, float dx) : _creature(creature), dx(dx)
 {
     skin.setTexture(t);
     rect = sf::FloatRect(x, y, 40, 50);
-    dx = dy = 0;
-    currentFrame = 0;
 }
 
-GraphicCreature::~GraphicCreature() { if (!_creature) delete _creature; }
+GraphicCreature::~GraphicCreature() { delete _creature; }
 
 void GraphicCreature::load(const sf::Texture& t, int name, float x, float y, Creature * creature)
 {
@@ -23,7 +21,17 @@ void GraphicCreature::load(const sf::Texture& t, int name, float x, float y, Cre
     currentFrame = 0;
 }
 
-void GraphicCreature::collision(int dir, Map map)
+void GraphicCreature::looting(Map & map)
+{
+    for (auto & cell: map.cells) {
+        if (rect.left <= cell.x && cell.x <= (rect.left + rect.width) && rect.top <= cell.y && cell.y <= (rect.left + rect.height))
+            for (auto  item : cell.items) {
+
+            }
+
+    }
+}
+/*void GraphicCreature::collision(int dir, Map map)
 {
     for (int i = rect.top / 32; i < (rect.top + rect.height) / 32; i++)
         for (int j = rect.left / 32; j < (rect.left + rect.width) / 32; j++) {
@@ -57,7 +65,7 @@ void GraphicCreature::update(float time, Map & map)
 
     dx = 0;
     dy = 0;
-}
+}*/
 
 void GraphicCreature::getBlood()
 {
