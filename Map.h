@@ -21,7 +21,8 @@ struct cell {
     float y = 0;
     MyVector<int, Object*> items;
 
-    cell(Object * item) {
+    cell(Object * item, float x, float y) : x(x), y(y)
+    {
         items.push_back(0, item);
     }
 };

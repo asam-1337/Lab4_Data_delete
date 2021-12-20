@@ -6,10 +6,7 @@
 
 Map::Map()
 {
-    cells.push_back(cell(new Weapon(AK, 10, 5, 30, 30, 10)));
-    cells[0].x = 2*32;
-    cells[0].y = 2*32;
-
+    cells.push_back(cell(new Weapon("M4", 10, 5, 30, 30, 10), 3*32, 2*32));
 }
 
 void Map::print(sf::RenderWindow & window, sf::RectangleShape & rectangle)

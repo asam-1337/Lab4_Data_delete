@@ -6,11 +6,30 @@
 #include "graphics/GraphicWild.h"
 #include "Map.h"
 #include <sstream>
+#include <typeinfo>
 //#include "src/MyVector.h"
 
 using namespace sf;
 
-void control(GraphicCreature * player, float & time , Map & map, int & n, int screenWidth, int screenHeight) {
+void openInvent(RenderWindow & window, GraphicCreature * player, Map & map)
+{
+    sf::Font font;
+    font.loadFromFile("../CyrilicOld.ttf");
+    sf::Text text("",font,20);
+    text.setColor(sf::Color::Red);
+    text.setPosition(5*32,13*32);
+    if (Keyboard::isKeyPressed(Keyboard::Tab)) {
+        player->looting(window, map);
+
+
+        /*std::ostringstream ss;
+        ss << map.cells[0].items[0].second->getType();
+        text.setString("Item: " + ss.str() + "\n");
+        window.draw(text);*/
+    }
+}
+
+void control(RenderWindow & window, GraphicCreature * player, float & time , Map & map, int & n, int screenWidth, int screenHeight) {
     if (Keyboard::isKeyPressed(Keyboard::A)) {
         player->dx = -0.1;
     }
@@ -37,12 +56,15 @@ void control(GraphicCreature * player, float & time , Map & map, int & n, int sc
             n++;
     }
 
+
     player->update(time, map);
 
     if (player->rect.left > screenWidth/2)
         map.offsetX = player->rect.left - screenWidth/2;
     if (player->rect.top > screenHeight/2)
         map.offsetY = player->rect.top - screenHeight/2;
+
+
 }
 
 int main()
@@ -51,13 +73,18 @@ int main()
     int screenHeight = 768;
     
     RenderWindow window(VideoMode(screenWidth, screenHeight), "[DATA DELETED]");
-
+/*
     Font font;
     font.loadFromFile("../CyrilicOld.ttf");
     Text text("",font,20);
     text.setColor(Color::Green);
     text.setPosition(10,13*32);
-    float q = 0.001;
+
+    sf::Text text2("",font,20);
+    text2.setColor(sf::Color::Red);
+    text2.setPosition(10*32,13*32);
+*/
+
 
     Texture t;
     t.loadFromFile("../fang.png");
@@ -71,6 +98,8 @@ int main()
     enemies.push_back(new GraphicFurajir(t, 1, 6*32, 6*32, new Furajir("2")));
 
     Map map;
+    //map.cells.push_back(cell(new Weapon(AK, 10, 10, 30, 30, 30), 3*32, 2*32));
+
     int n = 0;
 
     Clock clock;
@@ -98,16 +127,22 @@ int main()
             enemy->update(time, map);
         }
 
-        control(players[n], time, map, n, screenWidth, screenHeight);
+        control(window, players[n], time, map, n, screenWidth, screenHeight);
 
         window.clear(Color::White);
         map.print(window, rectangle);
-
+/*
         std::ostringstream ss;
         ss << n;
         text.setString("Player name: " + ss.str());
         window.draw(text);
 
+        std::ostringstream ss2;
+        ss2 << "AK";
+        text2.setString("Item: " + ss2.str());
+        window.draw(text2);
+*/
+        openInvent(window, players[n], map);
         for (auto player : players)
             window.draw(player->skin);
 

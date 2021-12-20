@@ -11,7 +11,6 @@
 
 class Weapon : public Object{
 private:
-    Name name;
     const int damage = 0;
     const int reload_cost = 0;
     const int shoot_cost = 0;
@@ -19,7 +18,7 @@ private:
     const int max_ammo = 0;
 
 public:
-    Weapon(Name name, int damage, int reload_cost, int curr_ammo, int max_amm, int weight);
+    Weapon(std::string name, int damage, int reload_cost, int curr_ammo, int max_amm, int weight);
 
     [[nodiscard]] int getDamage() const { return damage; }
 

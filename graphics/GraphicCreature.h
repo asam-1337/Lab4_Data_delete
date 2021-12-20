@@ -6,9 +6,11 @@
 #define LAB4_DATA_DELETE_GRAPHICCREATURE_H
 
 #include <SFML/Graphics.hpp>
+#include <sstream>
 #include "../src/Creature.h"
 #include "../Map.h"
 
+using namespace sf;
 
 class GraphicCreature {
 
@@ -30,7 +32,7 @@ public:
 
     virtual void update(float time, Map & map) = 0;
 
-    virtual void looting(Map & map);
+    virtual bool looting(RenderWindow & window, Map & map);
 
     virtual void getBlood();
 

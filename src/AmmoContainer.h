@@ -6,6 +6,7 @@
 #define LAB4_DATA_DELETE_AMMOCONTAINER_H
 
 #include <string>
+#include <utility>
 #include "Object.h"
 
 class AmmoContainer : public Object{
@@ -13,7 +14,7 @@ private:
     int ammo = 100;
     const int max_ammo = 100;
 public:
-    AmmoContainer(Name name): Object(20){}
+    AmmoContainer(std::string name): Object(std::move(name),20) {}
 
     [[nodiscard]] int& getAmmo() { return ammo; }
 

@@ -20,12 +20,14 @@ enum Name{
 };
 
 class Object {
+public:
+    std::string name;
 protected:
     int m_weight = 0;
 public:
     Object() = default;
 
-    Object(int weight) : m_weight(weight) {}
+    Object(std::string name, int weight) : name(std::move(name)), m_weight(weight) {}
 
     virtual ~Object() = default;
 

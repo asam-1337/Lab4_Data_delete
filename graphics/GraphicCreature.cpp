@@ -4,6 +4,7 @@
 
 #include "GraphicCreature.h"
 
+
 GraphicCreature::GraphicCreature(const sf::Texture& t, int name, float x, float y, Creature * creature, float dx) : _creature(creature), dx(dx)
 {
     skin.setTexture(t);
@@ -21,14 +22,24 @@ void GraphicCreature::load(const sf::Texture& t, int name, float x, float y, Cre
     currentFrame = 0;
 }
 
-void GraphicCreature::looting(Map & map)
+bool GraphicCreature::looting(RenderWindow & window, Map & map)
 {
+    sf::Font font;
+    font.loadFromFile("../CyrilicOld.ttf");
+    sf::Text text("",font,20);
+    text.setColor(sf::Color::Black);
+    text.setPosition(5*32,13*32);
+
     for (auto & cell: map.cells) {
         if (rect.left <= cell.x && cell.x <= (rect.left + rect.width) && rect.top <= cell.y && cell.y <= (rect.left + rect.height))
-            for (auto  item : cell.items) {
-
+            for (auto  item : cell.items)
+            {
+                std::ostringstream ss;
+                ss << item.second->name << 2;
+                text.setString("On ground: \n" + ss.str());
+                window.draw(text);
             }
-
+            return true;
     }
 }
 /*void GraphicCreature::collision(int dir, Map map)

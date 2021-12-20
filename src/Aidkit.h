@@ -13,7 +13,7 @@ private:
     int health = 50;
     const int cost = 10;
 public:
-    Aidkit() : Object(10) {}
+    Aidkit() : Object("Aidkit",10) {}
 
     [[nodiscard]] Type getType() const override { return AIDKIT; }
 };
